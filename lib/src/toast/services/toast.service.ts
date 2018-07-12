@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-
+declare var JQuery: any;
+declare var $: any;
+declare var Materialize: any;
 @Injectable()
 export class MzToastService {
 

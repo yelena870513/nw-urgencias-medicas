@@ -101,6 +101,104 @@
         }
       }
     },
+    "urgencias": {
+      "root": "urgencias/",
+      "sourceRoot": "urgencias/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/urgencias",
+            "index": "urgencias/src/index.html",
+            "main": "urgencias/src/main.ts",
+            "polyfills": "urgencias/src/polyfills.ts",
+            "tsConfig": "urgencias/tsconfig.app.json",
+            "assets": [
+              "urgencias/src/assets",
+              "urgencias/src/favicon.ico",
+              "urgencias/src/app/validation/markdown",
+              "urgencias/src/app/validation/validation-binding/markdown",
+              "urgencias/src/app/validation/validation-form-state/markdown",
+              "urgencias/src/app/validation/validation-ngmodel/markdown",
+              "urgencias/src/app/validation/validation-playground/markdown"
+            ],
+            "styles": [
+              "urgencias/src/styles.scss",
+              "node_modules/highlightjs/styles/default.css",
+              "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
+              "node_modules/materialize-css/dist/css/materialize.min.css",
+              "node_modules/@mdi/font/css/materialdesignicons.min.css",
+              "node_modules/prismjs/themes/prism.css"
+            ],
+            "scripts": [
+              "node_modules/highlightjs/highlight.pack.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-diff.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "urgencias/src/environments/environment.ts",
+                  "with": "urgencias/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "urgencias:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "urgencias:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "urgencias:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "urgencias/tsconfig.app.json",
+              "urgencias/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "lib": {
       "root": "lib",
       "sourceRoot": "lib/src",
@@ -141,6 +239,7 @@
         }
       }
     }
+
   },
-  "defaultProject": "demo"
+  "defaultProject": "urgencias"
 }
