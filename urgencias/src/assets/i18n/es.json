@@ -1,0 +1,105 @@
+{
+  "PAGE_TITLE": "Facultad",
+  "READMORE": "Leer más...",
+  "HOME":{
+    "TITLE": "Facultad",
+    "DESCRIPTION": "5 SIGLOS DE TRADICIÓN",
+    "EXTRA": "más de 500 RECETAS",
+    "MENU": "MENÚ",
+    "BIENVENIDA":"Contenido",
+    "BUTTON":"Contenido",
+    "ISMAELILLO":"Proyecto Ismaelillo",
+    "CONTENT":"Contenidos jurídicos",
+    "DERECHO": "El derecho en historia",
+    "BIBLIOTECA":"Biblioteca jurídica",
+    "WELCOME":"COCINA CUBANA",
+    "RECIPE":"Recetas",
+    "TABLE":"Tablas de equivalencia",
+    "GLOSSARY":"Glosario",
+    "GENERIC":"Más"
+
+  },
+  "GLOSSARY":{
+    "TITLE": "Glosario",
+    "BOOKS":"Libros"
+  },
+  "CREDIT":{
+    "TITLE": "Equipo de realización/Créditos institucionales",
+    "BOOKS":"Libros"
+  },
+  "CONTENIDO":{
+    "TITLE": "Contenidos jurídicos de la educación cívica",
+    "BOOKS":"Códigos de ética",
+    "UTIL":"Útiles",
+    "ETHIC":"Ética",
+    "QUESTION":"Preguntas",
+    "GLOSSARY":"Glosario"
+  },
+   "BIBLIOTECA":{
+    "TITLE": "Biblioteca Jurídica",
+    "BOOKS":"Libros"
+  },
+  "QUESTION":{
+    "TITLE": "Estudiantes",
+    "BOOKS":"Libros",
+    "QUESTION":"Cuestionario",
+    "TRUE":"V",
+    "FALSE":"F"
+  },
+   "DERECHO":{
+    "TITLE": "El derecho en la historia",
+    "BOOKS":"Libros",
+    "CONSTITUCIONES":"Constituciones cubanas ",
+    "JURISTAS":"Juristas insignes"
+  },
+  "PROFESORES":{
+    "TITLE": "Profesores",
+    "BOOKS":"Temas"
+  },
+  "LANDING":{
+    "TITLE": "Contenido General",
+    "BOOKS":"Libros"
+  },
+  "NAV":{
+    "START":"Inicio",
+    "HOME": "Recetas",
+    "TABLE": "Tablas de equivalencia",
+    "GLOSSARY": "Glosario",
+    "CREDIT": "Créditos",
+    "PREV":"Anterior",
+    "NEXT":"Siguiente",
+    "EXIT":"Salir"
+  },
+  "CONTENIDOS":{
+    "CATEGORY": "Preguntas"
+  },
+  "FOOTER":{
+    "COPY":"Copyright © 2018. Todos los derechos reservados.",
+    "UP":"Subir"
+  },
+  "LIBRARY":{
+    "HEADER":"PDF",
+    "THEMES":"TEMÁTICAS",
+    "BOOKS":"LIBROS"
+  },
+  "MODAL":{
+    "HEADER":"Salir",
+    "CONTENT":"¿Desea salir de la multimedia?",
+    "CANCEL": "Cancelar",
+    "ACCEPT": "Aceptar"
+  },
+  "TABLE":{
+    "TEMPERATURE":"TEMPERATURA",
+    "CENTIGRADE":"CENTIGRADOS",
+    "FARENHEIT":"FARENHEIT"
+  }
+  ,
+  "articulos":"Artículos científicos",
+  "normasInternacionales":"Normas internacionales",
+  "normasNacionales":"Normas nacionales",
+  "normasBasicos":"Normas básicas",
+  "normasCivil":"Normas civiles",
+  "normasPenal":"Normas penales",
+  "EXIT": "Salir"
+
+}

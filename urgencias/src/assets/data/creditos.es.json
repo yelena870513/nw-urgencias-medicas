@@ -1,0 +1,57 @@
+{"docs":[
+  { "cargo":"DIRECCIÓN DE PROYECTO",
+    "name":"MSc. Mayling Mirabal Olivera",
+    "order":"1",
+    "tipo":"equipo"
+  },
+  { "cargo":"PROVEEDOR DE CONTENIDOS",
+    "name":"Chef Eddy Fernández Monte",
+    "order":"2",
+    "tipo":"equipo"
+  },
+  { "cargo":"DISEñO Y PROGRAMACIÓN",
+    "name":"Ing. Yelena Islen San Juan",
+    "order":"3",
+    "tipo":"equipo"
+  },
+  { "cargo":"Edición de imágenes",
+    "name":"D.I. Alexander Carcedo Olivé",
+    "order":"4",
+    "tipo":"equipo"
+  },
+  { "cargo":"CONTROL DE LA CALIDAD",
+    "name":"MSc. Hissel Lamanier Regueiferos",
+    "order":"5",
+    "tipo":"equipo"
+  },
+  { "cargo":"ASEGURAMIENTO DE LA CALIDAD",
+    "name":" MSc. Mercedes María Sosa Hernández",
+    "order":"6",
+    "tipo":"equipo"
+  },
+  { "cargo":"Directora General",
+    "name":" MSc. Beatriz Alonso Becerra",
+    "order":"1",
+    "tipo":"institucional"
+  },
+  { "cargo":"Directora Comercial",
+    "name":" Ing. Dania Molina Pimienta",
+    "order":"2",
+    "tipo":"institucional"
+  },
+  { "cargo":"Directora de Desarrollo e Innovación Tecnológica",
+    "name":" Ing. Niurka Armas Lock",
+    "order":"3",
+    "tipo":"institucional"
+  },
+  { "cargo":"Director UEB Proyectos Multimedia",
+    "name":" Lic. Jorge Acosta Ezcurra",
+    "order":"4",
+    "tipo":"institucional"
+  },
+  { "cargo":"Gestión de la Calidad y Auditoría",
+    "name":" MSc. Mercedes María Sosa Hernández",
+    "order":"5",
+    "tipo":"institucional"
+  }
+  ]}

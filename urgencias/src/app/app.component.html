@@ -1,0 +1,57 @@
+<header>
+  <mz-sidenav #sidenav
+    [id]="'sidenav'"
+    [backgroundClass]="'sidenav-background'"
+    [closeOnClick]="true"
+    [collapseButtonId]="'btn-sidenav'"
+    [fixed]="true">
+
+    <mz-sidenav-header>
+      <a [routerLink]="'home'">
+        <img class="angular-logo" src="assets/angular.png">
+        <img class="materialize-logo" src="assets/materialize-logo.png">
+      </a>
+      <h5 class="materialize-name center-align white-text">Contenido</h5>
+    </mz-sidenav-header>
+
+
+    <mz-sidenav-collapsible *ngFor="let item of menu">
+      <mz-sidenav-collapsible-header>
+        <i mz-icon-mdi [icon]="'chevron-down'" class="grey-text caret"></i><span class="grey-text">{{ item.name | translate }}</span>
+      </mz-sidenav-collapsible-header>
+
+      <mz-sidenav-collapsible-content *ngIf="item.hasChild">
+        <mz-sidenav-link *ngFor="let child of item.children">
+          <a class="waves-effect white-text" [routerLink]="[item.url, child]" >
+            <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}
+          </a>
+        </mz-sidenav-link>
+      </mz-sidenav-collapsible-content>
+
+      <mz-sidenav-collapsible-content *ngIf="!item.hasChild">
+        <mz-sidenav-link>
+          <a class="waves-effect white-text" [routerLink]="[item.url]" >
+            <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ item.name | translate}}
+          </a>
+        </mz-sidenav-link>
+      </mz-sidenav-collapsible-content>
+    </mz-sidenav-collapsible>
+  </mz-sidenav>
+
+  <button mz-button
+    class="sidenav-button hide-on-large-only"
+    id="btn-sidenav"
+    [float]="true"
+    [large]="true">
+    <i mz-icon-mdi [icon]="'menu'"></i>
+  </button>
+</header>
+
+<main>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<footer>
+</footer>

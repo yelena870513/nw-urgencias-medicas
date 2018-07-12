@@ -1,0 +1,191 @@
+@import "./_variables";
+
+/* Utility classes */
+
+.rotate90 {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* Page structure */
+
+.section {
+  padding-top: 0 !important;
+
+  > .section {
+    margin-top: 16px;
+  }
+
+  > p:last-child,
+  > .row:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  button {
+    margin-bottom: 4px;
+  }
+}
+
+table {
+  &.striped {
+    > tbody {
+      > tr {
+        &:nth-child(odd) {
+          background-color: rgba(0,0,0,0.07) !important;
+        }
+        > td {
+          &:first-child {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Application loading */
+
+.preloader-container {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+}
+
+/* Code highlight */
+
+code[class*="language-"] {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+:not(pre) > code {
+  background: rgba(0, 0, 0, 0.07) !important;
+  border-radius: 2px !important;
+  padding: 0.1em 0.3em !important;
+  margin: 0 0.05em !important;
+}
+
+/* ngx-markdown override */
+
+markdown {
+  h1 { font-size: 2.92rem; }
+  h2 { font-size: 2.28rem; }
+  h3 { font-size: 1.64rem; }
+  h4 { font-size: 1.32em; }
+  h5 { font-size: 1.16rem; }
+  h6 { font-size: 1.00rem; }
+
+  // code section
+
+  pre {
+    background: rgba(0, 0, 0, 0.07) !important;
+    border-radius: 2px;
+    padding: 1em;
+  }
+
+  ul {
+    padding-left: 40px !important;
+
+    li {
+      list-style-type: disc !important;
+    }
+  }
+
+  // readme.md hide/show (demo vs github)
+
+  .readme-github-logo {
+    display: none !important;
+  }
+
+  .readme-summary > p {
+    text-align: left !important;
+  }
+}
+
+/* Materialize-CSS override */
+
+h6 {
+  font-size: 1.2rem !important;
+}
+
+.input-field:not(.inline) {
+    display: inline-block;
+    width: 100%;
+}
+
+/* Materialize-CSS addons */
+
+blockquote {
+  padding: 1rem 1.5rem;
+
+  &.important {
+    background: rgba(238, 110, 115, 0.14);
+  }
+
+  &.info {
+    background: rgba(0, 137, 236, 0.14);
+    border-left-color: rgb(0, 137, 236);
+  }
+}
+
+.medium {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.m-valign-wrapper {
+  @media #{$medium-and-up} {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(~material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+  url(~material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+  url(~material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
