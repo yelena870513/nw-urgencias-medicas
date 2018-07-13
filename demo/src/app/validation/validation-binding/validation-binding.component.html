@@ -1,0 +1,79 @@
+<div class="card">
+  <div class="card-tabs col s12">
+    <ul class="tabs">
+      <li class="tab"><a class="active" href="#view-binding">View</a></li>
+      <li class="tab"><a href="#html-binding">HTML</a></li>
+      <li class="tab"><a href="#code-binding">TS</a></li>
+    </ul>
+  </div>
+  <div class="card-content">
+    <div id="view-binding" class="col s12">
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="row m-valign-wrapper">
+          <mz-checkbox-container class="col s12 m2">
+            <input mz-checkbox
+              id="checkbox-binding"
+              formControlName="checkbox"
+              type="checkbox"
+              [filledIn]="true"
+              [label]="'Disabled'">
+          </mz-checkbox-container>
+          <mz-input-container class="col s12 m3">
+            <input mz-input mz-validation required
+              id="input-binding"
+              formControlName="input"
+              type="text"
+              [errorMessageResource]="errorMessages.input"
+              [formControlDisabled]="form.controls['checkbox'].value"
+              [label]="'Input'"
+              [placeholder]="'Enter text'">
+          </mz-input-container>
+          <mz-select-container class="col s12 m3">
+            <select mz-select mz-validation required
+              id="select-binding"
+              formControlName="select"
+              [errorMessageResource]="errorMessages.select"
+              [formControlDisabled]="form.controls['checkbox'].value"
+              [label]="'Select'"
+              [placeholder]="'Choose an option'">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </mz-select-container>
+           <mz-datepicker-container class="col s12 m3">
+            <input mz-datepicker mz-validation required
+              id="datepicker-binding"
+              formControlName="datepicker"
+              type="text"
+              [errorMessageResource]="errorMessages.datepicker"
+              [formControlDisabled]="form.controls['checkbox'].value"
+              [label]="'Datepicker'"
+              [options]="{ format: 'yyyy-mm-dd' }"
+              [placeholder]="'Select a date'">
+          </mz-datepicker-container>
+          <mz-timepicker-container class="col s12 m3">
+            <input mz-timepicker mz-validation required
+              id="timepicker-binding"
+              formControlName="timepicker"
+              type="text"
+              [errorMessageResource]="errorMessages.timepicker"
+              [formControlDisabled]="form.controls['checkbox'].value"
+              [label]="'Timepicker'"
+              [placeholder]="'Select a time'">
+          </mz-timepicker-container>
+        </div>
+        <button mz-button [disabled]="!form.valid" type="submit">Submit</button>
+        <button mz-button (click)="clear()" type="button">Clear</button>
+      </form>
+
+      <div *ngIf="submitted">
+        <h5 class="light">Submitted form</h5>
+        <markdown [data]="values | json | language: 'json'"></markdown>
+      </div>
+    </div>
+    <div id="html-binding" class="col s12"><markdown [src]="'app/validation/validation-binding/markdown/component.html'"></markdown></div>
+    <div id="code-binding" class="col s12"><markdown [src]="'app/validation/validation-binding/markdown/component.ts'"></markdown></div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+image: Visual Studio 2017
+
+branches:
+  only:
+    - master
+
+environment:
+  matrix:
+    - nodejs_version: "8"
+
+platform:
+  - x64
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - yarn install --frozen-lockfile --no-progress
+  - yarn build:lib --prod
+  - npm pack ./dist/lib
+  - 7z x ngx-materialize-*.tgz && 7z x ngx-materialize-*.tar
+  - cd package && yarn link && cd ..
+  - yarn install --frozen-lockfile --no-progress
+  - yarn link ngx-materialize
+
+test_script:
+  - node --version
+  - npm --version
+  - yarn --version
+  - yarn lint:demo
+  - yarn build:demo --prod --no-progress
+
+after_test:
+  - yarn unlink ngx-materialize
+  - cd package && yarn unlink && cd ..
+
+build: off
+
+cache:
+  - node_modules -> yarn.lock
+  - "%LOCALAPPDATA%/Yarn"

@@ -1,0 +1,32 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+// Auto-Import extension
+  "autoimport.doubleQuotes": false,
+  "autoimport.spaceBetweenBraces": true,
+
+// Editor
+
+  // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 2,
+
+  // Controls whether the editor should render indent guides
+  "editor.renderIndentGuides": true,
+
+// Files
+
+  // When enabled, will trim trailing whitespace when you save a file.
+  "files.trimTrailingWhitespace": true,
+
+// Search
+
+  // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
+  "search.exclude": {
+    "**/.tmp": true,
+    "**/coverage": true,
+    "**/dist": true,
+    "**/inline-template": true
+  },
+
+// Vscode-Icon extension
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
