@@ -1,2 +1,14 @@
-AAAAA
-{{theme}}
+<h5 class="light">{{theme}}</h5>
+<div class="section">
+    <mz-collapsible class="col s12 m8 l6">
+
+        <mz-collapsible-item *ngFor="let content of contents">
+            <mz-collapsible-item-header>{{content.title}}</mz-collapsible-item-header>
+            <mz-collapsible-item-body>
+                <p [innerHtml]="content.content">
+                </p>
+            </mz-collapsible-item-body>
+        </mz-collapsible-item>
+
+    </mz-collapsible>
+</div>

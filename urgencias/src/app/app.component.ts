@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Route, Router } from '@angular/router';
+//noinspection TypeScriptCheckImport
 import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 import { MzSidenavComponent } from 'ngx-materialize';
 import { filter } from 'rxjs/operators';
@@ -85,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
           .subscribe((data: any) => {
                   //noinspection TypeScriptUnresolvedFunction
                   let categories = data.docs.filter((f: any) =>  !_.isUndefined(f) && f.tipo === 'category')
-                      .sort((a:any,b:any)=>a.order - b.order).map((m: any) => m.title);
+                      .sort((a:any,b:any)=>a.order - b.order).map((m: any) => m.title).filter((c: any) => data.docs.filter((d: any)=> d.tipo === 'content' && d.category===c).length > 0);
                   this.menu = [
                       {name: 'NAV.START', url: '/home' },
                       {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },

@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+//noinspection TypeScriptCheckImport
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { MarkdownModule } from 'ngx-markdown';
-import { MzButtonModule, MzIconMdiModule, MzSidenavModule } from 'ngx-materialize';
+import {MzButtonModule, MzIconMdiModule, MzSidenavModule, MzCollapsibleModule} from 'ngx-materialize';
 
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routing';
@@ -27,6 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MzIconMdiModule,
     MzSidenavModule,
     DataModule,
+    MzCollapsibleModule,
     MarkdownModule.forRoot(),
     RouterModule.forRoot(ROUTES),
     TranslateModule.forRoot({
