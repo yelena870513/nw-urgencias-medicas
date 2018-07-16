@@ -32,6 +32,7 @@
 /libpeerconnection.log
 /package
 /typings
+/vendor
 package-lock.json
 test-results.xml
 tslint.xml

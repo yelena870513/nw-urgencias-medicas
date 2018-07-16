@@ -1,14 +1,37 @@
 <h5 class="light">{{theme}}</h5>
-<div class="section">
-    <mz-collapsible class="col s12 m8 l6">
-
-        <mz-collapsible-item *ngFor="let content of contents">
-            <mz-collapsible-item-header>{{content.title}}</mz-collapsible-item-header>
-            <mz-collapsible-item-body>
-                <p [innerHtml]="content.content">
-                </p>
-            </mz-collapsible-item-body>
-        </mz-collapsible-item>
-
-    </mz-collapsible>
+<button mz-button id="btn-topic" class="waves-effect waves-light btn">{{'CONTENT.SIDE'}} </button>
+<div class="section" *ngIf="readMode && current">
+    <div class="col s12 m8 16">
+        <p [innerHtml]="current.content  | liteSearch : searchString">
+        </p>
+    </div>
 </div>
+<div class="section" *ngIf="searchMode">
+    <div class="row">
+        <div class="col s12 m8 l6">
+
+        </div>
+    </div>
+</div>
+<mz-sidenav [id]="'topic'"
+            [collapseButtonId]="'btn-topic'"
+            [edge]="'right'">
+
+    <mz-sidenav-header>
+        <div class="user-view">
+            <img class="circle avatar" src="assets/sidenav-demo-avatar.png">
+            <div class="name">{{'CONTENT.THEMES' | translate}}</div>
+
+        </div>
+
+    </mz-sidenav-header>
+    <mz-sidenav-link>
+        <div class="search-wrapper">
+            <input placeholder="Buscar" id="search"  (keyup)="startSearch($event)"><i class="material-icons search-action">search</i>
+            <div class="search-results"></div>
+        </div>
+    </mz-sidenav-link>
+    <mz-sidenav-link  *ngFor="let content of contents" [active]="content.title==current.title">
+        <a (click)="openRead(content, true, '')">{{content.title}}</a>
+    </mz-sidenav-link>
+</mz-sidenav>

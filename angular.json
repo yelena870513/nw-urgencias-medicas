@@ -135,7 +135,8 @@
               "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
               "node_modules/materialize-css/dist/css/materialize.min.css",
               "node_modules/@mdi/font/css/materialdesignicons.min.css",
-              "node_modules/prismjs/themes/prism.css"
+              "node_modules/prismjs/themes/prism.css",
+              "vendor/css/ghpages-materialize.css"
             ],
             "scripts": [
               "node_modules/highlightjs/highlight.pack.min.js",

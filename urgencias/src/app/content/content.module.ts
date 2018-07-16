@@ -3,16 +3,40 @@ import { CommonModule } from '@angular/common';
 import {ContentComponent} from './content.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './content.routing';
-import {MzCollapsibleModule} from "ngx-materialize";
+import {MzCollapsibleModule, MzToastModule, MzCardModule} from "ngx-materialize";
+import {MzSidenavModule} from "ngx-materialize";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {SearchForPipe} from "../pipes/search-for";
+import {LiteSearchPipe} from "../pipes/lite-search";
+import {HighlightsPipe} from "../pipes/highlights";
 
-
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),
-    MzCollapsibleModule
+    MzSidenavModule,
+    MzToastModule,
+      MzCardModule,
+      TranslateModule.forRoot({
+          loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+          }
+      })
   ],
-  declarations: [ContentComponent]
+  declarations: [
+      ContentComponent,
+      SearchForPipe,
+      LiteSearchPipe,
+      HighlightsPipe,
+  ]
 })
 export class ContentModule { }
