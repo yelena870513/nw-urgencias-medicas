@@ -13,6 +13,7 @@ export class ContentComponent implements OnInit {
 
   theme: string;
   contents: any [];
+  totals: any [];
   current: any;
   readMode  = true;
   searchMode  = false;
@@ -33,7 +34,8 @@ export class ContentComponent implements OnInit {
     this.theme = f.theme;
     this.dataService.getContent(this.translate.currentLang)
         .subscribe((data: any) => {
-              this.contents = data.docs.filter((f:any) => f.category===this.theme);
+              this.contents = data.docs.filter((f:any) => f.category ===this.theme && f.tipo=='content');
+              this.totals = data.docs.filter((f:any) => f.tipo ==='content');
               this.current = this.contents[0];
         })
   })}
