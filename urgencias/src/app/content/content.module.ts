@@ -11,7 +11,9 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {SearchForPipe} from "../pipes/search-for";
 import {LiteSearchPipe} from "../pipes/lite-search";
 import {HighlightsPipe} from "../pipes/highlights";
+//noinspection TypeScriptCheckImport
 import {NgxPaginationModule} from 'ngx-pagination';
+import {GoResultDirective} from "../directives/go-result.directive";
 
 
 // AoT requires an exported function for factories
@@ -41,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       SearchForPipe,
       LiteSearchPipe,
       HighlightsPipe,
+      GoResultDirective
   ]
 })
 export class ContentModule { }

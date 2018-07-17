@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from "../data/data.service";
 import {TranslateService} from "@ngx-translate/core";
@@ -18,7 +18,8 @@ export class ContentComponent implements OnInit {
   readMode  = true;
   searchMode  = false;
   hasError  = false;
-   searchString='';
+  searchString='';
+  @ViewChild("sidenav") sidenav:any;
   constructor(
       private route: ActivatedRoute,
       private dataService: DataService,
@@ -46,6 +47,7 @@ export class ContentComponent implements OnInit {
     openRead(content, readMode, searchString){
     this.current = content;
     this.readMode = readMode;
+    this.searchMode = !readMode;
     this.searchString = searchString;
   }
     FireAction($event) {
@@ -60,6 +62,7 @@ export class ContentComponent implements OnInit {
                 this.searchMode = true;
                 this.readMode = false;
                 this.hasError=false;
+                this.sidenav.opened = !this.sidenav.opened
             }
             else{
                 this.toastService.show('<i>Al menos tres caracteres</i>!', 4000, 'green');

@@ -1,13 +1,13 @@
 <h5 class="light">{{theme}}</h5>
 <button mz-button id="btn-topic" class="waves-effect waves-light btn">{{'CONTENT.SIDE'}} </button>
-<div class="section" *ngIf="readMode && current">
+<div class="section article" *ngIf="readMode && current" goResult searchString="{{searchString}}">
     <div class="col s12 m8 16">
         <p [innerHtml]="current.content  | liteSearch : searchString">
         </p>
     </div>
 </div>
 <div class="section" *ngIf="searchMode">
-    <div class="row">
+    <div class="row" *ngIf="(totals | searchFor: searchString)" >
         <div class="col s3 m4 l4" *ngFor="let t of totals | searchFor: searchString |paginate: { itemsPerPage: 3, currentPage: page }">
             <mz-card
                     class="blue-green  green-text"
@@ -24,16 +24,28 @@
             </mz-card>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 m8 l6">
-            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    <div class="row" *ngIf="(totals | searchFor: searchString)">
 
+        <div class="col s12 m8 l6">
+            <mz-pagination
+                           [enableFirstAndLastPageButtons]="true"
+                           [itemsPerPage]="3"
+                           [totalItems]="totals.length"
+                           (pageChange)="page = $event"
+            >
+            </mz-pagination>
+        </div>
+    </div>
+    <div class="row" *ngIf="!(totals | searchFor: searchString)">
+        <div class="col s12 m8 l6">
+            {{'SEARCH.NORESULTS' | translate}}
         </div>
     </div>
 </div>
 <mz-sidenav [id]="'topic'"
             [collapseButtonId]="'btn-topic'"
-            [edge]="'right'">
+            [edge]="'right'"
+            #sidenav>
 
     <mz-sidenav-header>
         <div class="user-view">

@@ -61,7 +61,7 @@ export class HighlightsPipe implements PipeTransform {
     last = last + ' ...';
 
 
-    const res = last.replace(new RegExp(exp, 'gi'), '<span class="highlightedText">$&</span>');
+    const res = last.replace(new RegExp(exp, 'gi'), '<span class="highlightedText badge red">$&</span>');
 
     return this.sanitizer.bypassSecurityTrustHtml(res);
   }
