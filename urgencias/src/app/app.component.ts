@@ -7,6 +7,7 @@ import { filter } from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {DataService} from './data/data.service';
 import * as _ from 'lodash';
+declare var $: any;
 abstract class SectionRoutesPair {
   section: string;
   routes: Route[];
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.initElement();
     this.initScrollbar();
+    this.clBackToTop();
   }
 
   ngOnDestroy() {
@@ -104,4 +106,26 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => window.scrollTo(0, 0));
   }
+
+  clBackToTop () {
+
+    var pxShow      = 500,
+        goTopButton = $(".go-top");
+      goTopButton.on('click', function (ev) {
+          $('body,html').animate({
+              scrollTop: 0
+          }, 600);
+      });
+
+    // Show or hide the button
+    if ($(window).scrollTop() >= pxShow) goTopButton.removeClass('hidden');
+
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() >= pxShow) {
+            if(!goTopButton.hasClass('hidden')) goTopButton.removeClass('hidden')
+        } else {
+            goTopButton.addClass('hidden')
+        }
+    });
+};
 }
