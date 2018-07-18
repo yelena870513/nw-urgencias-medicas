@@ -118,13 +118,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       });
 
     // Show or hide the button
-    if ($(window).scrollTop() >= pxShow) goTopButton.removeClass('hidden');
+    if ($(window).scrollTop() >= pxShow) goTopButton.removeClass('hide');
 
     $(window).on('scroll', function() {
         if ($(window).scrollTop() >= pxShow) {
-            if(!goTopButton.hasClass('hidden')) goTopButton.removeClass('hidden')
+            if(!goTopButton.hasClass('hide')) goTopButton.removeClass('hide')
         } else {
-            goTopButton.addClass('hidden')
+            goTopButton.addClass('hide')
         }
     });
 };
