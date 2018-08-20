@@ -14,4 +14,9 @@ export class DataService {
     public getCredits(lang: string): Observable<any> {
         return this.http.get('assets/data/creditos.' + lang + '.json');
     }
+
+    public getQuestions(lang: string): Observable<any>{
+        return this.http.get('assets/data/preguntas.' + lang + '.json');
+
+    }
 }

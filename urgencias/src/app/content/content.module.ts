@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ContentComponent} from './content.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './content.routing';
-import {MzCollapsibleModule, MzToastModule, MzCardModule, MzPaginationModule} from "ngx-materialize";
+import {MzToastModule, MzCardModule, MzPaginationModule} from "ngx-materialize";
 import {MzSidenavModule} from "ngx-materialize";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient} from "@angular/common/http";

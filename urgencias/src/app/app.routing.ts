@@ -15,6 +15,7 @@ export const ROUTES: Routes = [
   // home route
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
   { path: 'content', loadChildren: './content/content.module#ContentModule',data: { icon: 'language-css3', text: 'Materialize CSS Class', section: css } },
+  { path: 'ejercicios', loadChildren: './questionaire/questionaire.module#QuestionaireModule',data: { icon: 'language-css3', text: 'Materialize CSS Class', section: css } },
 
 
   // redirect to home when route does not exists (must be last route)

@@ -22,7 +22,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('sidenav') sidenav: MzSidenavComponent;
 
   groupedRoutes: Array<SectionRoutesPair>;
-  scrollElement: JQuery;
+  //noinspection TypeScriptUnresolvedVariable
+    scrollElement: JQuery;
   menu: any[];
 
   constructor(
@@ -53,7 +54,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.mScrollbarService.destroy(this.scrollElement);
+    //noinspection TypeScriptUnresolvedFunction
+      this.mScrollbarService.destroy(this.scrollElement);
   }
 
   initElement() {
@@ -61,7 +63,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   initScrollbar() {
-    this.mScrollbarService.initScrollbar(this.scrollElement, { axis: 'y', theme: 'minimal', scrollInertia: 100 });
+    //noinspection TypeScriptUnresolvedFunction
+      this.mScrollbarService.initScrollbar(this.scrollElement, { axis: 'y', theme: 'minimal', scrollInertia: 100 });
   }
 
   populateSideNavWithRoutesGroupedBySections() {
@@ -92,8 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                   this.menu = [
                       {name: 'NAV.START', url: '/home' },
                       {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },
-                      {name: 'NAV.TABLE', url: '/table' },
-                      {name: 'NAV.GLOSSARY', url: '/glossary' },
+                      {name: 'NAV.TABLE', url: '/ejercicios' },
                       {name: 'NAV.CREDIT', url: '/credits' }
                   ];
               },
