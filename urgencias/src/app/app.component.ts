@@ -96,7 +96,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                       {name: 'NAV.START', url: '/home' },
                       {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },
                       {name: 'NAV.TABLE', url: '/ejercicios' },
-                      {name: 'NAV.CREDIT', url: '/credits' }
+                      {name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author'] }
                   ];
               },
               (err)=>{alert(JSON.stringify(err))});

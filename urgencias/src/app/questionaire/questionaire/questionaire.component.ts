@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {DataService} from "../../data/data.service";
 import {TranslateService} from "@ngx-translate/core";
 
@@ -9,9 +9,12 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class QuestionaireComponent implements OnInit {
 
-  questions: any[];
+  questions: any[] = [];
+  page =1;
   constructor( private dataService: DataService,
-               private translate: TranslateService,) {
+               private translate: TranslateService,
+
+               ) {
     // this language will be used as a fallback when a translation isn't found in the current language
     this.translate.setDefaultLang('es');
 
@@ -24,8 +27,9 @@ export class QuestionaireComponent implements OnInit {
   ngOnInit() {
     this.dataService.getQuestions(this.translate.currentLang)
         .subscribe((data: any) => {
-          this.questions = data.docs;
+            this.questions = data.docs;
         });
   }
+
 
 }

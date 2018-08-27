@@ -18,6 +18,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
+    exports:[
+        TranslateModule
+    ],
   declarations: []
 })
 export class SharedModule { }

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+import * as _ from 'lodash';
 
 @Pipe({ name: 'searchFor' })
 export class SearchForPipe implements PipeTransform {
@@ -18,12 +18,15 @@ export class SearchForPipe implements PipeTransform {
 
     content.forEach(function(item){
 
-      const temp = item.content.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
+        if (!_.isUndefined(item.content)) {
+            const temp = item.content.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
 
 
-      if ( temp.search(searchString) !== -1) {
-        result.push(item);
-      }
+            if ( temp.search(searchString) !== -1) {
+                result.push(item);
+            }
+        }
+
 
     });
 

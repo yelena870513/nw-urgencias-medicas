@@ -1,18 +1,82 @@
 <div class="row">
     <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 1, currentPage: page }">
         <mz-card
-                class="blue-grey darken-1 white-text"
+                class="green  white-text"
                 [hoverable]="true">
             <mz-card-title>
                {{question.header}}
             </mz-card-title>
             <mz-card-content>
-                I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                <div class="row">
+                    <div class="col m12 s8 l4"  *ngIf="question.type === 'radio'">
+                        <mz-radio-button-container>
+                            <input mz-radio-button
+                                   *ngFor="let q of question.questionSet"
+                                   [label]="q.text"
+                                   [withGap]="true"
+                                   id="{{q.id}}"
+                                   name="{{question.group}}"
+                                   type="radio">
+                        </mz-radio-button-container>
+                        <div *ngIf="question.type === 'radio'">
+                            <button type="button"
+                                    class="btn btn-primary list"
+                                    (click)="question.showAnswer=!question.showAnswer">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
+                            <div *ngIf="question.showAnswer">
+                                <ul class="nav nav-stack">
+                                    <li class="margin-top-5" *ngFor="let qa of question.questionSet">
+                                        <span class="label label-info" [hidden]="!qa.value">{{qa.text}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col m12 s8 l4"  *ngIf="question.type === 'image' || question.type === 'write'">
+                        <mz-input-container>
+                            <i mz-icon-mdi mz-input-prefix
+                               [icon]="'email'">
+                            </i>
+                            <input mz-input
+                                   [label]="'QUESTION.TYPE_ANSWER' | translate"
+                                   [validate]="true"
+                                   id="email-input"
+                                   placeholder="'QUESTION.TYPE_ANSWER' | translate"
+                                   autocomplete="question.questionSet"
+                                   length="150"
+                                   type="text">
+                        </mz-input-container>
+                        <button type="button"
+                                class="btn btn-primary list"
+                                (click)="question.showAnswer=!question.showAnswer">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
+                        <div *ngIf="question.showAnswer">
+                            <ul class="nav nav-stack">
+                                <li class="margin-top-5" *ngFor="let qa of question.questionSet">
+                                    <span class="label label-info">{{qa.text}}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
             </mz-card-content>
             <mz-card-action>
-                <a href="#">This is a link</a>
-                <a href="#">This is a link</a>
+
+
             </mz-card-action>
         </mz-card>
+    </div>
+    <div class="col s8 m12"  *ngIf="questions.length>0">
+        <mz-pagination
+                (pageChange)="page = $event"
+                [enableFirstAndLastPageButtons]="false"
+                [itemsPerPage]="1"
+                [totalItems]="questions.length"
+        >
+        </mz-pagination>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12">
+
     </div>
 </div>
