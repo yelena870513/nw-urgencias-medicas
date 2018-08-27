@@ -1,3 +1,16 @@
-<p>
-  author works!
-</p>
+<div class="row">
+  <div class="col l12 m12 s12">
+    <mz-collapsible
+            [mode]="'expandable'"
+            [popout]="true">
+      <mz-collapsible-item [active]="i==0" *ngFor="let item of authors; let i = index;" >
+        <mz-collapsible-item-header>
+          {{item.name}} | {{item.subject}}
+        </mz-collapsible-item-header>
+        <mz-collapsible-item-body>
+          <div [innerHTML]="item.body"></div>
+        </mz-collapsible-item-body>
+      </mz-collapsible-item>
+    </mz-collapsible>
+  </div>
+</div>
