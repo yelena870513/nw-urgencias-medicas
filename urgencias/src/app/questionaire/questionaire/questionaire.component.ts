@@ -31,5 +31,9 @@ export class QuestionaireComponent implements OnInit {
         });
   }
 
+  onChange($item, $event){
+   $item.returnValue = $event.returnValue;
+  }
+
 
 }

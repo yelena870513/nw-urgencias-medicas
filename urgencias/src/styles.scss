@@ -1,5 +1,5 @@
 @import "./_variables";
-
+$has-error: #e53935;
 /* Utility classes */
 
 .rotate90 {
@@ -215,4 +215,21 @@ header {
 }
 .go{
   cursor: help;
+}
+
+
+[type="radio"].has-error:checked+label:after, [type="radio"].has-error.with-gap:checked+label:before, [type="radio"].has-error.with-gap:checked+label:after{
+  border: 2px solid $has-error;
+}
+[type="radio"].has-error:checked+label:after, [type="radio"].has-error.with-gap:checked+label:before, [type="radio"].has-error.with-gap:checked+label:after {
+  border: 2px solid $has-error;
+}
+
+[type="radio"].has-error:checked+label:after, [type="radio"].has-error.with-gap:checked+label:after {
+  background-color: $has-error;
+}
+
+[type="radio"].has-error:checked+label{
+  border:2px solid $has-error;
+  border-radius: 3px;
 }

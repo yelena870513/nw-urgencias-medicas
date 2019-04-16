@@ -16,7 +16,10 @@
                                    [withGap]="true"
                                    id="{{q.id}}"
                                    name="{{question.group}}"
-                                   type="radio">
+                                   type="radio"
+                                   (change)="onChange(q,$event)"
+                                   [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue)}"
+                            >
                         </mz-radio-button-container>
                         <div *ngIf="question.type === 'radio'">
                             <button type="button"
@@ -40,14 +43,14 @@
                                    [label]="'QUESTION.TYPE_ANSWER' | translate"
                                    [validate]="true"
                                    id="email-input"
-                                   placeholder="'QUESTION.TYPE_ANSWER' | translate"
+                                   placeholder="{{'QUESTION.TYPE_ANSWER' | translate}}"
                                    autocomplete="question.questionSet"
                                    length="150"
                                    type="text">
                         </mz-input-container>
                         <button type="button"
                                 class="btn btn-primary list"
-                                (click)="question.showAnswer=!question.showAnswer">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
+                                (click)="question.showAnswer=!question.showAnswer">{{ 'QUESTION.SHOW_ANSWER' | translate }}</button>
                         <div *ngIf="question.showAnswer">
                             <ul class="nav nav-stack">
                                 <li class="margin-top-5" *ngFor="let qa of question.questionSet">

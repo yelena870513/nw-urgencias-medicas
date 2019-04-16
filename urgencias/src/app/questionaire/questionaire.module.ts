@@ -5,6 +5,7 @@ import {SharedModule} from "../shared/shared.module";
 import {ROUTES} from "./questionaire.routing";
 import {RouterModule} from '@angular/router';
 import {MzCardModule, MzInputModule, MzPaginationModule, MzRadioButtonModule, MzIconModule, MzIconMdiModule} from 'ngx-materialize'
+//noinspection TypeScriptCheckImport
 import {NgxPaginationModule} from "ngx-pagination";
 import {MapTextPipe} from "../pipes/map-text";
 

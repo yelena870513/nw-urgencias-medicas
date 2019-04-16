@@ -1,3 +1,8 @@
+$has-error: #e53935;
 .col.s8.m12 /deep/ .white-text label{
   color: white !important;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
+  border: 2px solid $has-error;
 }
