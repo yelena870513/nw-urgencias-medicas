@@ -1,23 +1,15 @@
 {
-  "PAGE_TITLE": "Facultad",
+  "PAGE_TITLE": "Urgencias médicas",
   "READMORE": "Leer más...",
   "HOME":{
-    "TITLE": "Facultad",
-    "DESCRIPTION": "5 SIGLOS DE TRADICIÓN",
-    "EXTRA": "más de 500 RECETAS",
-    "MENU": "MENÚ",
-    "BIENVENIDA":"Contenido",
-    "BUTTON":"Contenido",
-    "ISMAELILLO":"Proyecto Ismaelillo",
-    "CONTENT":"Contenidos jurídicos",
-    "DERECHO": "El derecho en historia",
-    "BIBLIOTECA":"Biblioteca jurídica",
-    "WELCOME":"COCINA CUBANA",
-    "RECIPE":"Recetas",
-    "TABLE":"Tablas de equivalencia",
-    "GLOSSARY":"Glosario",
-    "GENERIC":"Más"
+    "TITLE": "Urgencias Médicas"
 
+  },
+  "BEGIN": {
+    "TITLE": "Introducción",
+    "PART1": "Una urgencia médica es una condición clínica que requiere de una actuación rápida, precisa, solidez del conocimiento teórico y la presencia de habilidades prácticas por parte del personal de atención. Es por ello que la asistencia médica en los servicios de urgencia constituye dentro del sistema de salud de cada país, una de las actividades de mayor complejidad. Es el resultado de la interacción de múltiples factores implicados en disponer de cobertura asistencial con elevada tecnología, que satisfaga la demanda por la morbilidad poblacional de una manera constante y continua.",
+    "PART2": "La atención al paciente grave requiere de competencia profesional. Sin embargo, es crucial que dicho personal disponga de un elevado nivel de recursos que complementen la actuación. Así será posible alcanzar la calidad de la atención que se ofrece, en situaciones en que el tiempo impone al médico la mayor celeridad y certeza.",
+    "PART3": " ​En múltiples ocasiones, producto del grosor del contenido que se debe memorizar en relación con los criterios de diagnóstico y conducta a seguir con las entidades a las cuales nos enfrentamos en nuestras guardias médicas, nos hemos encontrado ante la necesidad de una guía de referencia rápida, principalmente en el personal de poca experiencia. Por todo ello se hace necesario contar con un soporte digital que nos permita cumplir con mayor prontitud nuestra tarea."
   },
   "GLOSSARY":{
     "TITLE": "Glosario",
@@ -33,6 +25,7 @@
     "UTIL":"Útiles",
     "ETHIC":"Ética",
     "QUESTION":"Preguntas",
+    "SIDE": "Temas",
     "GLOSSARY":"Glosario"
   },
    "BIBLIOTECA":{
@@ -46,24 +39,14 @@
     "TRUE":"V",
     "FALSE":"F"
   },
-   "DERECHO":{
-    "TITLE": "El derecho en la historia",
-    "BOOKS":"Libros",
-    "CONSTITUCIONES":"Constituciones cubanas ",
-    "JURISTAS":"Juristas insignes"
-  },
-  "PROFESORES":{
-    "TITLE": "Profesores",
-    "BOOKS":"Temas"
-  },
   "LANDING":{
     "TITLE": "Contenido General",
     "BOOKS":"Libros"
   },
   "NAV":{
     "START":"Inicio",
-    "HOME": "Recetas",
-    "TABLE": "Tablas de equivalencia",
+    "HOME": "Contenido",
+    "TABLE": "Cuestionario",
     "GLOSSARY": "Glosario",
     "CREDIT": "Créditos",
     "PREV":"Anterior",
@@ -74,7 +57,7 @@
     "CATEGORY": "Preguntas"
   },
   "FOOTER":{
-    "COPY":"Copyright © 2018. Todos los derechos reservados.",
+    "COPY": "Copyright © 2019. Todos los derechos reservados.",
     "UP":"Subir"
   },
   "LIBRARY":{
@@ -88,18 +71,15 @@
     "CANCEL": "Cancelar",
     "ACCEPT": "Aceptar"
   },
-  "TABLE":{
-    "TEMPERATURE":"TEMPERATURA",
+  "SIDEBAR": {
+    "TITLE": "Menú",
     "CENTIGRADE":"CENTIGRADOS",
     "FARENHEIT":"FARENHEIT"
+  },
+  "SEARCH": {
+    "GO": "Ver más"
   }
   ,
-  "articulos":"Artículos científicos",
-  "normasInternacionales":"Normas internacionales",
-  "normasNacionales":"Normas nacionales",
-  "normasBasicos":"Normas básicas",
-  "normasCivil":"Normas civiles",
-  "normasPenal":"Normas penales",
   "team":"Equipo Realizador",
   "author":"Autores",
   "EXIT": "Salir"

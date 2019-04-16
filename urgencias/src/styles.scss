@@ -193,4 +193,26 @@ blockquote {
 span.badge.highlightedText
 {
   color: #fff;
+  float: none;
+}
+
+.side-nav li>a {
+  line-height: 70px !important;
+}
+
+.section.article{
+  h4 {
+    font-size: 22px;
+    color: #2bba9e;
+    font-weight: 700;
+
+  }
+}
+header {
+  .sidenav-background {
+    background: #003a52 !important;
+  }
+}
+.go{
+  cursor: help;
 }

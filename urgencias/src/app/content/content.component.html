@@ -1,5 +1,7 @@
 <h5 class="light">{{theme}}</h5>
-<button mz-button id="btn-topic" class="waves-effect waves-light btn">{{'CONTENT.SIDE'}} </button>
+<button mz-button id="btn-topic" class="waves-effect waves-light btn" [ngClass]="{'hide': contents?.length < 2}">
+    {{'CONTENIDO.SIDE' | translate}}
+</button>
 <div class="section article" *ngIf="readMode && current" goResult searchString="{{searchString}}">
     <div class="col s12 m8 16">
         <p [innerHtml]="current.content  | liteSearch : searchString">
@@ -19,7 +21,7 @@
                     <p [innerHtml]="t.content | highlights: searchString"></p>
                 </mz-card-content>
                 <mz-card-action>
-                    <a (click)="openRead(t,!readMode,searchString)" >{{'SEARCH.GO' | translate}}</a>
+                    <a class="go" (click)="openRead(t,!readMode,searchString)">{{'SEARCH.GO' | translate}}</a>
                 </mz-card-action>
             </mz-card>
         </div>
@@ -49,8 +51,8 @@
 
     <mz-sidenav-header>
         <div class="user-view">
-            <img class="circle avatar" src="assets/sidenav-demo-avatar.png">
-            <div class="name">{{'CONTENT.THEMES' | translate}}</div>
+            <img class="circle avatar" src="{{ theme | logo}}">
+            <div class="name">{{'CONTENIDO.SIDE' | translate}}</div>
 
         </div>
 
@@ -62,6 +64,6 @@
         </div>
     </mz-sidenav-link>
     <mz-sidenav-link  *ngFor="let content of contents" [active]="content.title==current.title">
-        <a (click)="openRead(content, true, '')">{{content.title}}</a>
+        <a [ngClass]="{'search': searchMode}" (click)="openRead(content, true, '')">{{content.title}}</a>
     </mz-sidenav-link>
 </mz-sidenav>

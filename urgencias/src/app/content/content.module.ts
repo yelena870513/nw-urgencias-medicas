@@ -14,6 +14,7 @@ import {HighlightsPipe} from "../pipes/highlights";
 //noinspection TypeScriptCheckImport
 import {NgxPaginationModule} from 'ngx-pagination';
 import {GoResultDirective} from "../directives/go-result.directive";
+import {LogoPipe} from "../pipes/logo";
 
 
 // AoT requires an exported function for factories
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       SearchForPipe,
       LiteSearchPipe,
       HighlightsPipe,
-      GoResultDirective
+      GoResultDirective,
+      LogoPipe
   ]
 })
 export class ContentModule { }

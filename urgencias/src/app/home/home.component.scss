@@ -1,51 +1,25 @@
-@import '../../_variables';
+@import "../../_route-animation-host";
 
-$logo-resize: "only screen and (max-width: 650px)" !default;
+.parallax-card #{'/deep/'} {
 
-.header-background {
-  box-shadow: 0 -1px 32px rgba(0, 0, 0, 0.33) inset;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.header-content {
-  position: relative;
-  height: 176px;
-  margin-bottom: 76px;
-}
-
-.github-button {
-  position: absolute;
-  bottom: -56px;
-  right: 0;
-
-  @media #{$logo-resize} {
-    right: calc(50% - 75px);
+  .card-content {
+    padding: 0;
   }
-}
 
-.angular-logo {
-  max-height: 175px;
-
-  @media #{$logo-resize} {
-    max-height: 140px;
-    margin-left: calc(50% - 162px);
+  .parallax-container {
+    z-index: 1;
   }
-}
 
-.plus-logo.mdi:before {
-  color: rgba(255,255,255,0.75);
-  font-size: 116px;
-  margin: 0 -58px;
-}
+  .parallax-section {
+    padding: 32px;
+  }
 
-.materialize-logo {
-  margin: 14px;
-  max-height: 125px;
+  .parallax-image {
+    opacity: 1;
+    height: 700px;
+  }
 
-  @media #{$logo-resize} {
-    max-height: 90px;
+  a {
+    word-wrap: break-word;
   }
 }

@@ -18,6 +18,7 @@ export class SearchForPipe implements PipeTransform {
 
     content.forEach(function(item){
 
+        //noinspection TypeScriptUnresolvedFunction
         if (!_.isUndefined(item.content)) {
             const temp = item.content.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
 
