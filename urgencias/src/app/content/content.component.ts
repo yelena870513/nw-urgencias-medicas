@@ -54,7 +54,7 @@ export class ContentComponent implements OnInit {
         this.searchString = $event.target.value;
     }
 
-    startSearch(event)
+    startSearch(event,openSide)
     {
         if (event.keyCode === 13) {
             if (event.target.value.length>2) {
@@ -62,15 +62,20 @@ export class ContentComponent implements OnInit {
                 this.searchMode = true;
                 this.readMode = false;
                 this.hasError=false;
-                this.sidenav.opened = !this.sidenav.opened
+                if (openSide === undefined || openSide === true) {
+                    this.sidenav.opened = !this.sidenav.opened;
+                }
             }
             else{
                 this.toastService.show('<i>Al menos tres caracteres</i>!', 4000, 'green');
                 this.hasError=true;
             }
         }
-
-
+    }
+    offSearch(){
+        this.readMode = true;
+        this.searchMode = false;
+        this.searchString = '';
     }
 
 }

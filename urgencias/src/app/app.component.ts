@@ -16,7 +16,7 @@ abstract class SectionRoutesPair {
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('sidenav') sidenav: MzSidenavComponent;
@@ -25,6 +25,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     //noinspection TypeScriptUnresolvedVariable
     scrollElement: JQuery;
     menu: any[];
+    credits: any[];
+    quests: any[];
 
     constructor(private router: Router,
                 private mScrollbarService: MalihuScrollbarService,
@@ -92,10 +94,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                         .sort((a: any, b: any)=>a.order - b.order).map((m: any) => m.title).filter((c: any) => data.docs.filter((d: any)=> d.tipo === 'content' && d.category === c).length > 0);
                     this.menu = [
                         // {name: 'NAV.START', url: '/home'},
-                        {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories},
-                        {name: 'NAV.TABLE', url: '/ejercicios'},
-                        {name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author']}
+                        { name: 'NAV.HOME',   url: '/content', hasChild: true, children: categories },
+
+
                     ];
+
+                    this.quests = [{ name: 'NAV.TABLE',  url: '/ejercicios', hasChild: false }];
+
+                    this.credits = [{ name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author'] }];
                 },
                 (err)=> {
                     alert(JSON.stringify(err))

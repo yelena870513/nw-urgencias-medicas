@@ -17,6 +17,7 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn link:lib && ng serve",
+    "serve": "ng serve",
     "build:demo": "ng build demo",
     "build:lib": "ng build lib",
     "postbuild:lib": "cpx ./README.md ./dist/lib",

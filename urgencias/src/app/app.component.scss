@@ -99,6 +99,19 @@ main {
   }
 }
 
+#collection {
+
+}
+
+#collection .collection .collection-item {
+    background-color: #003a52 !important;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+    border-bottom: 1px solid #003a52 !important;
+  }
+
+
 /* mCustomScrollbar override */
 
 #{'/deep/'} {

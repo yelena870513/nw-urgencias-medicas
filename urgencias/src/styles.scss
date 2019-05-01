@@ -255,3 +255,21 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 .mdi-email:visited{
  color: #003a52;
 }
+#collection .collection {
+  border: none;
+}
+
+#collection .collection .collection-item {
+  background-color: #003a52 !important;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid #003a52 !important;
+  a {
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+        color: green;
+      }
+  }
+}

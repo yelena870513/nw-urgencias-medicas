@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 //noinspection TypeScriptCheckImport
 import { MalihuScrollbarModule } from 'ngx-malihu-scrollbar';
 import { MarkdownModule } from 'ngx-markdown';
-import {MzButtonModule, MzIconMdiModule, MzSidenavModule, MzCollapsibleModule} from 'ngx-materialize';
+import {MzButtonModule, MzIconMdiModule, MzSidenavModule, MzCollapsibleModule, MzCollectionModule } from 'ngx-materialize';
 
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routing';
@@ -27,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MzButtonModule,
     MzIconMdiModule,
     MzSidenavModule,
+    MzCollectionModule,
     DataModule,
     MzCollapsibleModule,
     MarkdownModule.forRoot(),
