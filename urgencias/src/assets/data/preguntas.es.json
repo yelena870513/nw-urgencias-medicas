@@ -6,7 +6,7 @@
       "form":"05e32e85",
       "formObject":"undefined",
       "group":"7cc79a71-3533-11e8-b3cf-0242ac120002",
-      "header":"Sobre Urgencia Hipertensiva marque la opción correcta",
+      "header":"Sobre Urgencia Hipertensiva marque la opción correcta:",
       "questionSet":[
         {
           "id":"14859c04-3531-11e8-b3cf-0242ac120002",
@@ -38,7 +38,7 @@
       "form":"05e73fdd",
       "formObject":"undefined",
       "group":"8a4fda9a-3533-11e8-b3cf-0242ac120002",
-      "header":"Sobre Intoxicación por Metanol marque la opción correcta",
+      "header":"Sobre Intoxicación por Metanol marque la opción correcta:",
       "questionSet":[
         {
           "id":"39e2bdd0-3531-11e8-b3cf-0242ac120002",

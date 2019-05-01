@@ -197,7 +197,12 @@ span.badge.highlightedText
 }
 
 .side-nav li>a {
-  line-height: 70px !important;
+  line-height: 19px !important;
+  cursor: pointer;
+}
+.side-nav li>a:hover {
+  text-decoration: underline;
+  color: green;
 }
 
 .section.article{
@@ -232,4 +237,21 @@ header {
 [type="radio"].has-error:checked+label{
   border:2px solid $has-error;
   border-radius: 3px;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: #2bbbad;
+  opacity: 0.5;
+}
+.green {
+  opacity: 0.8;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+  border: 2px solid darkgreen;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #003a52;
+  box-shadow: 0 1px 0 0 #003a52;
+}
+.mdi-email:visited{
+ color: #003a52;
 }

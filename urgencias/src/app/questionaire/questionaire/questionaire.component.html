@@ -8,7 +8,7 @@
             </mz-card-title>
             <mz-card-content>
                 <div class="row">
-                    <div class="col m12 s8 l4"  *ngIf="question.type === 'radio'">
+                    <div class="col m12 s8 l8 xl8"  *ngIf="question.type === 'radio'">
                         <mz-radio-button-container>
                             <input mz-radio-button
                                    *ngFor="let q of question.questionSet"
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col m12 s8 l4"  *ngIf="question.type === 'image' || question.type === 'write'">
+                    <div class="col m12 s8 l12 xl12"  *ngIf="question.type === 'image' || question.type === 'write'">
                         <mz-input-container>
                             <i mz-icon-mdi mz-input-prefix
                                [icon]="'email'">
@@ -43,7 +43,7 @@
                                    [label]="'QUESTION.TYPE_ANSWER' | translate"
                                    [validate]="true"
                                    id="email-input"
-                                   placeholder="{{'QUESTION.TYPE_ANSWER' | translate}}"
+
                                    autocomplete="question.questionSet"
                                    length="150"
                                    type="text">

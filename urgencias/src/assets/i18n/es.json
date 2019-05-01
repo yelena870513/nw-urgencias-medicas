@@ -34,7 +34,8 @@
   },
   "QUESTION":{
     "TITLE": "Estudiantes",
-    "BOOKS":"Libros",
+    "SHOW_ANSWER":"Ver respuesta",
+    "TYPE_ANSWER":"Escriba la respuesta",
     "QUESTION":"Cuestionario",
     "TRUE":"V",
     "FALSE":"F"

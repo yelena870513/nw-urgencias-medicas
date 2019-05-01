@@ -5,27 +5,27 @@
     "tipo":"equipo"
   },
   { "cargo":"PROVEEDOR DE CONTENIDOS",
-    "name":"Chef Eddy Fernández Monte",
+    "name":"Rafael Ernesto Machado Martínez, Anselmo Antonio Abdo Cuza",
     "order":"2",
     "tipo":"equipo"
   },
-  { "cargo":"DISEñO Y PROGRAMACIÓN",
+  { "cargo":"DISEÑO Y PROGRAMACIÓN",
     "name":"Ing. Yelena Islen San Juan",
     "order":"3",
     "tipo":"equipo"
   },
-  { "cargo":"Edición de imágenes",
-    "name":"D.I. Alexander Carcedo Olivé",
+  { "cargo":"EDICIÓN DE IMÁGENES",
+    "name":"D.I. Marcos J. Nicanor Hernández",
     "order":"4",
     "tipo":"equipo"
   },
-  { "cargo":"CONTROL DE LA CALIDAD",
-    "name":"MSc. Hissel Lamanier Regueiferos",
+  { "cargo":"CALIDAD",
+    "name":"Hissel Lamanier Regueiferos",
     "order":"5",
     "tipo":"equipo"
   },
-  { "cargo":"ASEGURAMIENTO DE LA CALIDAD",
-    "name":" MSc. Mercedes María Sosa Hernández",
+  { "cargo":"GESTIÓN DE LA CALIDAD",
+    "name":" Mercedes María Sosa Hernández, Anays gómez García",
     "order":"6",
     "tipo":"equipo"
   },
