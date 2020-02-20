@@ -1,13 +1,23 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {NavigationEnd, Route, Router} from '@angular/router';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 //noinspection TypeScriptCheckImport
 import {MalihuScrollbarService} from 'ngx-malihu-scrollbar';
-import {MzSidenavComponent} from 'ngx-materialize';
+import {
+    MzCollapsibleComponent,
+    MzSidenavCollapsibleComponent,
+    MzSidenavComponent,
+    MzToastService
+} from 'ngx-materialize';
 import {filter} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {DataService} from './data/data.service';
 import * as _ from 'lodash';
+
 declare var $: any;
+declare var win: any;
+declare var window: any;
+declare var OutApp: any;
+
 abstract class SectionRoutesPair {
     section: string;
     routes: Route[];
@@ -20,37 +30,45 @@ abstract class SectionRoutesPair {
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('sidenav') sidenav: MzSidenavComponent;
-
+    @ViewChild('menuCollapse') menuCollapse: MzSidenavCollapsibleComponent;
     groupedRoutes: Array<SectionRoutesPair>;
     //noinspection TypeScriptUnresolvedVariable
     scrollElement: JQuery;
     menu: any[];
     credits: any[];
     quests: any[];
+    theme: string;
 
     constructor(private router: Router,
                 private mScrollbarService: MalihuScrollbarService,
                 private translate: TranslateService,
-                private dataService: DataService) {
+                private toastService: MzToastService,
+                private dataService: DataService,
+                private route: ActivatedRoute) {
         // this language will be used as a fallback when a translation isn't found in the current language
         this.translate.setDefaultLang('es');
 
         // the lang to use, if the lang isn't available, it will use the current loader to get them
         this.translate.use('es');
+
+        this.route.params.subscribe((f: any) => {
+            this.theme = f.theme;
+        });
     }
 
     ngOnInit() {
         this.populateSideNavWithRoutesGroupedBySections();
         this.setNavigationEndEvent();
         this.populateAlternativeMenu();
-
-
     }
 
     ngAfterViewInit() {
         this.initElement();
         this.initScrollbar();
         this.clBackToTop();
+        window.addEventListener('load', () => {
+            document.getElementById('NAV.HOME').click();
+        });
     }
 
     ngOnDestroy() {
@@ -90,21 +108,20 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.dataService.getContent(this.translate.currentLang)
             .subscribe((data: any) => {
                     //noinspection TypeScriptUnresolvedFunction
-                    let categories = data.docs.filter((f: any) => !_.isUndefined(f) && f.tipo === 'category')
-                        .sort((a: any, b: any)=>a.order - b.order).map((m: any) => m.title).filter((c: any) => data.docs.filter((d: any)=> d.tipo === 'content' && d.category === c).length > 0);
+                    const categories = data.tema.sort((a: any, b: any) => a.orden - b.orden).map((m: any) => m.titulo);
                     this.menu = [
                         // {name: 'NAV.START', url: '/home'},
-                        { name: 'NAV.HOME',   url: '/content', hasChild: true, children: categories },
+                        { name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },
 
 
                     ];
 
-                    this.quests = [{ name: 'NAV.TABLE',  url: '/ejercicios', hasChild: false }];
+                    this.quests = [{ name: 'NAV.TABLE', url: '/ejercicios', hasChild: false }];
 
                     this.credits = [{ name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author'] }];
                 },
-                (err)=> {
-                    alert(JSON.stringify(err))
+                (err) => {
+                    alert(JSON.stringify(err));
                 });
     }
 
@@ -118,7 +135,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     clBackToTop() {
 
         var pxShow = 500,
-            goTopButton = $(".go-top");
+            goTopButton = $('.go-top');
         goTopButton.on('click', function (ev) {
             $('body,html').animate({
                 scrollTop: 0
@@ -136,4 +153,27 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             }
         });
     };
+
+    Salir() {
+
+    }
+
+    LogOut() {
+
+        //Preguntar primero desde que dispositivo se navega
+        if (!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+            try {
+                win.close(true);
+            } catch (reason) {
+                window.close();
+
+            }
+
+        } else {
+            window.close();
+
+
+        }
+
+    }
 }

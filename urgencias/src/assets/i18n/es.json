@@ -68,7 +68,7 @@
   },
   "MODAL":{
     "HEADER":"Salir",
-    "CONTENT":"¿Desea salir de la multimedia?",
+    "SALIR":"¿Usted desea salir de la multimedia?",
     "CANCEL": "Cancelar",
     "ACCEPT": "Aceptar"
   },

@@ -1,4 +1,5 @@
-import {Directive, ElementRef, HostListener, Input} from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import * as _ from 'lodash';
 @Directive({
   selector: '[goResult]',
 })
@@ -33,13 +34,13 @@ export class GoResultDirective {
     }
 
     const span = document.querySelector('.article span.highlightedText');
-    if (span !== undefined && this.cursor !== undefined) {
-      if (span.innerHTML !== this.cursor.innerHTML) {
+    if (!_.isNil(span)  && !_.isNil(this.cursor)) {
+      if (span.innerHTML.toLowerCase() !== this.cursor.innerHTML.toLowerCase()) {
         this.cursor = undefined;
         this.buffer = [];
       }
 
-    };
+    }
 
     if (this.cursor !== undefined) {
       if (this.cursor.classList)    {
@@ -65,7 +66,8 @@ export class GoResultDirective {
       let cursor = this.cursor;
       cursor.id = new Date().getTime().toString();
       const cursor_el = document.getElementById(cursor.id);
-      window.scrollTo(cursor_el.offsetLeft, cursor_el.offsetTop);
+      // window.scrollTo(cursor_el.offsetLeft, cursor_el.offsetTop);
+      window.scrollTo(0, cursor_el.offsetTop);
       cursor_el.scrollIntoView();
     }
 

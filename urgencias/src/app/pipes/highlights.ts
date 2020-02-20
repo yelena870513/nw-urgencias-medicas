@@ -9,7 +9,7 @@ export class HighlightsPipe implements PipeTransform {
     if (!criteria) {
       return this.sanitizer.bypassSecurityTrustHtml(html);
     }
-    let exp = criteria;
+    let exp = criteria.toLowerCase();
 
     const html2 = html.replace(/<\/?[^>]+(>|$)/g, '');
 

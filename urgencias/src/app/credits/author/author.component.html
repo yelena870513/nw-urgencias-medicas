@@ -1,11 +1,14 @@
 <div class="row">
   <div class="col l12 m12 s12">
-    <mz-collapsible
+    <mz-collapsible #autorCollapsible
             [mode]="'expandable'"
             [popout]="true">
       <mz-collapsible-item [active]="i==0" *ngFor="let item of authors; let i = index;" >
         <mz-collapsible-item-header>
           {{item.name}} | {{item.subject}}
+         <div class="logo">
+           <img class="profile" src="assets/images/profile/{{item.pic}}"/>
+         </div>
         </mz-collapsible-item-header>
         <mz-collapsible-item-body>
           <div [innerHTML]="item.body"></div>

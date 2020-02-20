@@ -1,4 +1,10 @@
 @import "./_variables";
+html{
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: rgba(0,0,0,0.87);
+}
 $has-error: #e53935;
 /* Utility classes */
 
@@ -26,7 +32,14 @@ $has-error: #e53935;
     margin-bottom: 4px;
   }
 }
+body {
+  font-size: 17px;
+  -webkit-user-select: none ;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
+}
 table {
   &.striped {
     > tbody {
@@ -105,7 +118,11 @@ markdown {
 }
 
 /* Materialize-CSS override */
-
+h3 {
+  font-size: 1.5em !important;
+  color: #2bba9e;
+  font-weight: bold;
+}
 h6 {
   font-size: 1.2rem !important;
 }
@@ -194,15 +211,24 @@ span.badge.highlightedText
 {
   color: #fff;
   float: none;
+  &.cursor {
+    text-decoration: underline;
+    font-weight: 700;
+  }
 }
 
 .side-nav li>a {
   line-height: 19px !important;
+  font-size: 16px;
+  margin-top: 8px;
   cursor: pointer;
 }
 .side-nav li>a:hover {
   text-decoration: underline;
-  color: green;
+  color: transparent;
+}
+.side-nav .collapsible-header:hover, .side-nav.fixed .collapsible-header:hover {
+  background-color: rgba(0,0,0,0.2);
 }
 
 .section.article{
@@ -259,17 +285,63 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   border: none;
 }
 
+#collection-exit .collection {
+  border: none;
+}
+
 #collection .collection .collection-item {
-  background-color: #003a52 !important;
+  background-color: transparent !important;
   line-height: 1.5rem;
   padding: 10px 20px;
   margin: 0;
-  border-bottom: 1px solid #003a52 !important;
+  border-bottom: 1px solid transparent !important;
   a {
-      font-size: 14px;
+      font-size: 16px;
+    margin-left: 3em;
       &:hover {
-        text-decoration: underline;
-        color: green;
+        text-decoration: none;
+        color: transparent;
+
       }
   }
+}
+#collection-exit .collection .collection-item {
+  background-color: transparent !important;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid transparent !important;
+  a {
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+      color: green;
+    }
+  }
+}
+footer{
+  width: 1024px !important;
+}
+.modal.modal-fixed-footer{
+  height: 28%;
+}
+.collapsible-body li a {
+  font-weight: 300 !important;
+}
+.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
+  text-transform: lowercase;
+}
+.side-nav .collapsible-body li a::first-letter, .side-nav.fixed .collapsible-body li a::first-letter {
+  text-transform: uppercase;
+}
+.side-nav li > a:hover {
+  color: black !important;
+}
+.menu-select {
+  background: #3cba54;
+  text-decoration: underline;
+}
+#collection-exit .collection .collection-item a {
+  font-size: 16px;
+  margin-left: 3em;
 }

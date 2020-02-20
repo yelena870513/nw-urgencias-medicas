@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {DataService} from "../../data/data.service";
 import {TranslateService} from "@ngx-translate/core";
+import {MzCollapsibleComponent, MzSidenavComponent} from "ngx-materialize";
 
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
-export class AuthorComponent implements OnInit {
-
+export class AuthorComponent implements OnInit, AfterViewInit {
+  @ViewChild('autorCollapsible') autorCollapsible: MzCollapsibleComponent;
   authors: any [];
   constructor(private dataService: DataService, private translate: TranslateService) {
       // this language will be used as a fallback when a translation isn't found in the current language
@@ -19,11 +20,17 @@ export class AuthorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getCredits(this.translate.currentLang).subscribe(
+    this.dataService.getContent(this.translate.currentLang).subscribe(
         ((data: any) =>{
-          this.authors = data.docs.filter((d: any) => d.tipo === 'autor');
+          this.authors = data.creditos.filter((d: any) => d.tipo === 'autor');
         })
     );
+  }
+
+    ngAfterViewInit() {
+      this.autorCollapsible.items.map((item, index) => {
+          this.autorCollapsible.open(index);
+      })
   }
 
 }

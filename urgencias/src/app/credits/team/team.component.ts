@@ -19,9 +19,9 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.dataService.getCredits(this.translate.currentLang).subscribe(
+      this.dataService.getContent(this.translate.currentLang).subscribe(
           ((data: any) =>{
-              this.team = data.docs.filter((d: any) => d.tipo === 'equipo');
+              this.team = data.creditos.filter((d: any) => d.tipo === 'equipo');
           })
       );
   }

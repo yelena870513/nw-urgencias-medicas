@@ -6,7 +6,7 @@
       "form":"05e32e85",
       "formObject":"undefined",
       "group":"7cc79a71-3533-11e8-b3cf-0242ac120002",
-      "header":"Sobre Urgencia Hipertensiva marque la opción correcta:",
+      "header":"1. Sobre Urgencia Hipertensiva marque la opción correcta:",
       "questionSet":[
         {
           "id":"14859c04-3531-11e8-b3cf-0242ac120002",
@@ -38,7 +38,7 @@
       "form":"05e73fdd",
       "formObject":"undefined",
       "group":"8a4fda9a-3533-11e8-b3cf-0242ac120002",
-      "header":"Sobre Intoxicación por Metanol marque la opción correcta:",
+      "header":"2. Sobre Intoxicación por Metanol marque la opción correcta:",
       "questionSet":[
         {
           "id":"39e2bdd0-3531-11e8-b3cf-0242ac120002",
@@ -47,7 +47,7 @@
         },
         {
           "id":"40745db3-3531-11e8-b3cf-0242ac120002",
-          "text":"Nunca el paciente llega al coma.",
+          "text":"Nunca el paciente llega al coma. ",
           "value":false
         }
       ,
@@ -59,7 +59,7 @@
       ,
         {
           "id":"4cb478e2-3531-11e8-b3cf-0242ac120002",
-          "text":"No se realiza lavado gástrico.",
+          "text":"No se realiza lavado gástrico. ",
           "value":false
         }
       ]
@@ -70,7 +70,7 @@
       "form":"dce2ab17",
       "formObject":"undefined",
       "group":"969920d5-3533-11e8-b3cf-0242ac120002",
-      "header":"Marque la opción correcta sobre la Apendicitis Aguda:",
+      "header":"3. Marque la opción correcta sobre la Apendicitis Aguda:",
       "questionSet":[
         {
           "id":"5262fb3c-3531-11e8-b3cf-0242ac120002",
@@ -101,7 +101,7 @@
       "form":"82c89f6d",
       "formObject":"undefined",
       "group":"9cdb7620-3533-11e8-b3cf-0242ac120002",
-      "header":"Marque la opción correcta sobre la Apendicitis Aguda:",
+      "header":"4. Marque la opción correcta sobre la Apendicitis Aguda:",
       "questionSet":[
         {
           "id":"8aa5396e-3531-11e8-b3cf-0242ac120002",
@@ -132,7 +132,7 @@
       "form":"b07e4efc",
       "formObject":"undefined",
       "group":"ac1c8e7a-3533-11e8-b3cf-0242ac120002",
-      "header":"Marque la opción correcta sobre la Apendicitis Aguda:",
+      "header":"5. Marque la opción correcta sobre la Apendicitis Aguda:",
       "questionSet":[
         {
           "id":"b71f10ea-3531-11e8-b3cf-0242ac120002",
@@ -163,7 +163,7 @@
       "form":"54766c20",
       "formObject":"undefined",
       "group":"8f77872b-35ff-11e8-af44-0242ac120003",
-      "header":"Posible diagnóstico radiológico:",
+      "header":"6. Posible diagnóstico Radiológico:",
       "questionSet":[
         {
           "id":"bd14fb8a-35ff-11e8-af44-0242ac120003",
@@ -185,7 +185,7 @@
       "form":"b4e5c7e3",
       "formObject":"undefined",
       "group":"bcb77287-3600-11e8-af44-0242ac120003",
-      "header":"Posible diagnóstico Radiográfico:",
+      "header":"7. Posible diagnóstico Radiográfico:",
       "questionSet":[
         {
           "id":"c1e4440a-3600-11e8-af44-0242ac120003",

@@ -8,27 +8,29 @@
 
     <mz-sidenav-header>
       <a [routerLink]="'home'">
-        <img class="angular-logo" src="assets/angular.png">
-        <img class="materialize-logo" src="assets/materialize-logo.png">
+        <img class="angular-logo" src="assets/images/urgencias.png">
       </a>
       <h5 class="materialize-name center-align white-text">{{ 'SIDEBAR.TITLE' | translate }}</h5>
     </mz-sidenav-header>
 
-    <mz-sidenav-collapsible *ngFor="let item of menu">
+    <mz-collapsible *ngFor="let item of menu" let i = index [id]="item.name">
 
-      <mz-sidenav-collapsible-header>
-        <i mz-icon-mdi [icon]="'chevron-down'" class="grey-text caret"></i><span class="grey-text">{{ item.name | translate }}</span>
-      </mz-sidenav-collapsible-header>
+     <mz-collapsible-item [active]="true">
+       <mz-collapsible-item-header>
+         <i mz-icon-mdi [icon]="'chevron-down'" class="grey-text caret"></i><span class="grey-text">{{ item.name | translate }}</span>
+       </mz-collapsible-item-header>
 
-      <mz-sidenav-collapsible-content *ngIf="item.hasChild">
-        <mz-sidenav-link *ngFor="let child of item.children">
-          <a class="waves-effect white-text" [routerLink]="[item.url, child]" >
-            <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}
-          </a>
-        </mz-sidenav-link>
-      </mz-sidenav-collapsible-content>
+       <mz-collapsible-item-body *ngIf="item.hasChild" [id]="'content'">
+         <mz-sidenav-link *ngFor="let child of item.children">
+           <a class="waves-effect white-text" [routerLink]="[item.url, child]" routerLinkActive="active">
+             <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}
 
-    </mz-sidenav-collapsible>
+           </a>
+         </mz-sidenav-link>
+       </mz-collapsible-item-body>
+     </mz-collapsible-item>
+
+    </mz-collapsible>
 
     <mz-collection id="collection">
       <mz-collection-item  *ngFor="let item of quests">
@@ -41,19 +43,28 @@
 
 
 
-    <mz-sidenav-collapsible *ngFor="let item of credits">
+    <mz-collapsible *ngFor="let item of credits">
+      <mz-collapsible-item>
+        <mz-collapsible-item-header>
+          <i mz-icon-mdi [icon]="'chevron-down'" class="grey-text caret"></i><span class="grey-text">{{ item.name | translate }}</span>
+        </mz-collapsible-item-header>
+        <mz-collapsible-item-body *ngIf="item.hasChild">
+          <mz-sidenav-link *ngFor="let child of item.children">
+            <a class="waves-effect white-text" [routerLink]="[item.url, child]" >
+              <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}
+            </a>
+          </mz-sidenav-link>
+        </mz-collapsible-item-body>
+      </mz-collapsible-item>
+    </mz-collapsible>
 
-      <mz-sidenav-collapsible-header>
-        <i mz-icon-mdi [icon]="'chevron-down'" class="grey-text caret"></i><span class="grey-text">{{ item.name | translate }}</span>
-      </mz-sidenav-collapsible-header>
-      <mz-sidenav-collapsible-content *ngIf="item.hasChild">
-        <mz-sidenav-link *ngFor="let child of item.children">
-          <a class="waves-effect white-text" [routerLink]="[item.url, child]" >
-            <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}
-          </a>
-        </mz-sidenav-link>
-      </mz-sidenav-collapsible-content>
-    </mz-sidenav-collapsible>
+    <mz-collection id="collection-exit">
+      <mz-collection-item>
+        <a class="waves-effect"  (click)="fixedFooterModal.openModal()">
+          <span class="grey-text"> {{'EXIT' | translate}}</span>
+        </a>
+      </mz-collection-item>
+    </mz-collection>
 
 
   </mz-sidenav>
@@ -81,3 +92,15 @@
     </div>
   </div>
 </footer>
+<mz-modal #fixedFooterModal [fixedFooter]="true" [bottomSheet]="false" class="exit">
+<!--  <mz-modal-header>-->
+<!--    <h4 class="text-center">Informaci&oacute;n</h4>-->
+<!--  </mz-modal-header>-->
+  <mz-modal-content>
+    <p class="text-accent-3 text-center">{{ 'MODAL.SALIR'| translate}}</p>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button [flat]="true" mz-modal-close (click)="LogOut()">{{ 'MODAL.ACCEPT'| translate}}</button>
+    <button mz-button [flat]="true" mz-modal-close >{{ 'MODAL.CANCEL'| translate}}</button>
+  </mz-modal-footer>
+</mz-modal>

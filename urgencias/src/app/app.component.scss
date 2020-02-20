@@ -21,7 +21,7 @@ header {
 
     .sidenav-background,
     .sidenav-button {
-      background: #003a52 !important;
+      background: #3a5a34 !important;
     }
 
     .sidenav-button {
@@ -104,12 +104,20 @@ main {
 }
 
 #collection .collection .collection-item {
-    background-color: #003a52 !important;
+    background-color: transparent !important;
     line-height: 1.5rem;
     padding: 10px 20px;
     margin: 0;
-    border-bottom: 1px solid #003a52 !important;
+    border-bottom: 1px solid transparent !important;
   }
+
+#collection-exit .collection .collection-item {
+  background-color: transparent !important;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid transparent !important;
+}
 
 
 /* mCustomScrollbar override */
@@ -128,4 +136,42 @@ main {
   .mCustomScrollBox {
     padding-bottom: 30px;
   }
+}
+
+.modal.modal-fixed-footer.bottom-sheet{
+  background: #eeeeee;
+}
+mz-modal{
+  text-align: center;
+  background-color: #eeeeee;
+  h4{
+    font-weight: 700;
+  }
+}
+.text-center {
+  text-align: center !important;
+}
+
+.active.waves-effect {
+  color: rgb(190, 190, 89);
+  font-weight: 700;
+}
+
+.exit {
+  .modal.modal-fixed-footer {
+    height: 35% !important;
+  }
+}
+.footer{
+  width: 1024px !important;
+}
+.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
+  text-transform: lowercase;
+}
+.side-nav .collapsible-body li a::first-letter, .side-nav.fixed .collapsible-body li a::first-letter {
+  text-transform: uppercase;
+}
+.active{
+  background: #4CAF50;
+  text-decoration: underline;
 }

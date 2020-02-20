@@ -12,7 +12,7 @@ export class LiteSearchPipe implements PipeTransform {
     if (!search) {
       return this.sanitizer.bypassSecurityTrustHtml(html);
     }
-    let exp = search;
+    let exp = search.toLowerCase();
 
     exp = exp.replace(/a/gi, '[a|á]');
     exp = exp.replace(/e/gi, '[e|é]');

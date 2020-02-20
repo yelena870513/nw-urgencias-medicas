@@ -16,11 +16,11 @@ export class SearchForPipe implements PipeTransform {
     searchString = searchString.replace(/o/gi, '[o|ó]');
     searchString = searchString.replace(/u/gi, '[u|ú]');
 
-    content.forEach(function(item){
+    content.forEach(function(item) {
 
         //noinspection TypeScriptUnresolvedFunction
-        if (!_.isUndefined(item.content)) {
-            const temp = item.content.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
+        if (!_.isNil(item.texto)) {
+            const temp = item.texto.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
 
 
             if ( temp.search(searchString) !== -1) {

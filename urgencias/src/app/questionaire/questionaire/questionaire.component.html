@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 1, currentPage: page }">
+    <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 8, currentPage: page }">
         <mz-card
                 class="green  white-text"
                 [hoverable]="true">
@@ -68,15 +68,7 @@
             </mz-card-action>
         </mz-card>
     </div>
-    <div class="col s8 m12"  *ngIf="questions.length>0">
-        <mz-pagination
-                (pageChange)="page = $event"
-                [enableFirstAndLastPageButtons]="false"
-                [itemsPerPage]="1"
-                [totalItems]="questions.length"
-        >
-        </mz-pagination>
-    </div>
+
 </div>
 <div class="row">
     <div class="col s12 m12">

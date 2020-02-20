@@ -9,7 +9,7 @@ export class DataService {
     }
 
     public getContent(lang: string): Observable<any> {
-        return this.http.get('assets/data/multimedia.' + lang + '.json');  }
+        return this.http.get('assets/data/multimedia.content.' + lang + '.json');  }
 
     public getCredits(lang: string): Observable<any> {
         return this.http.get('assets/data/creditos.' + lang + '.json');
