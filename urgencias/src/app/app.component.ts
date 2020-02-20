@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 //noinspection TypeScriptCheckImport
 import {MalihuScrollbarService} from 'ngx-malihu-scrollbar';
@@ -66,9 +66,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.initElement();
         this.initScrollbar();
         this.clBackToTop();
-        window.addEventListener('load', () => {
-            document.getElementById('NAV.HOME').click();
-        });
     }
 
     ngOnDestroy() {
@@ -111,14 +108,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     const categories = data.tema.sort((a: any, b: any) => a.orden - b.orden).map((m: any) => m.titulo);
                     this.menu = [
                         // {name: 'NAV.START', url: '/home'},
-                        { name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },
+                        {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories},
 
 
                     ];
 
-                    this.quests = [{ name: 'NAV.TABLE', url: '/ejercicios', hasChild: false }];
+                    this.quests = [{name: 'NAV.TABLE', url: '/ejercicios', hasChild: false}];
 
-                    this.credits = [{ name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author'] }];
+                    this.credits = [{name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author']}];
                 },
                 (err) => {
                     alert(JSON.stringify(err));
@@ -143,11 +140,15 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         });
 
         // Show or hide the button
-        if ($(window).scrollTop() >= pxShow) goTopButton.removeClass('hide');
+        if ($(window).scrollTop() >= pxShow) {
+            goTopButton.removeClass('hide');
+        }
 
         $(window).on('scroll', function () {
             if ($(window).scrollTop() >= pxShow) {
-                if (!goTopButton.hasClass('hide')) goTopButton.removeClass('hide')
+                if (goTopButton.hasClass('hide')) {
+                    goTopButton.removeClass('hide')
+                }
             } else {
                 goTopButton.addClass('hide')
             }

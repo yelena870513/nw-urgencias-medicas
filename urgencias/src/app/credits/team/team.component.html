@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col l12 m12 s12">
-    <mz-collapsible
+    <mz-collapsible #teamCollapsible
             [mode]="'expandable'"
             [popout]="true">
-      <mz-collapsible-item [active]="i==0" *ngFor="let item of team; let i = index;" >
+      <mz-collapsible-item *ngFor="let item of team; let i = index;" >
         <mz-collapsible-item-header>
          {{item.cargo}}
         </mz-collapsible-item-header>

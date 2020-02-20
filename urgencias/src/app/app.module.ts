@@ -20,6 +20,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DataModule} from './data/data.module';
+import {LightboxModule} from "ngx-lightbox";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient],
             },
         }),
+        LightboxModule
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],

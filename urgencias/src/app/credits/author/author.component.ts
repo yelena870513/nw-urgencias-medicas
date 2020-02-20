@@ -23,14 +23,17 @@ export class AuthorComponent implements OnInit, AfterViewInit {
     this.dataService.getContent(this.translate.currentLang).subscribe(
         ((data: any) =>{
           this.authors = data.creditos.filter((d: any) => d.tipo === 'autor');
+          setTimeout(() => {
+              this.autorCollapsible.items.map((item, index) => {
+                  this.autorCollapsible.open(index);
+              })
+          })
         })
     );
   }
 
     ngAfterViewInit() {
-      this.autorCollapsible.items.map((item, index) => {
-          this.autorCollapsible.open(index);
-      })
+
   }
 
 }

@@ -15,6 +15,7 @@ import {HighlightsPipe} from "../pipes/highlights";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {GoResultDirective} from "../directives/go-result.directive";
 import {LogoPipe} from "../pipes/logo";
+import {LightboxModule} from "ngx-lightbox";
 
 
 // AoT requires an exported function for factories
@@ -37,7 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
               useFactory: HttpLoaderFactory,
               deps: [HttpClient]
           }
-      })
+      }),
+      LightboxModule
   ],
   declarations: [
       ContentComponent,

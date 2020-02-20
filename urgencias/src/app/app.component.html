@@ -21,6 +21,13 @@
        </mz-collapsible-item-header>
 
        <mz-collapsible-item-body *ngIf="item.hasChild" [id]="'content'">
+
+         <mz-sidenav-link>
+           <a class="waves-effect white-text" [routerLink]="['/home']" routerLinkActive="active">
+             <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{'BEGIN.TITLE' | translate}}
+           </a>
+         </mz-sidenav-link>
+
          <mz-sidenav-link *ngFor="let child of item.children">
            <a class="waves-effect white-text" [routerLink]="[item.url, child]" routerLinkActive="active">
              <i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>{{ child | translate }}

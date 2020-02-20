@@ -3,7 +3,7 @@
     <mz-collapsible #autorCollapsible
             [mode]="'expandable'"
             [popout]="true">
-      <mz-collapsible-item [active]="i==0" *ngFor="let item of authors; let i = index;" >
+      <mz-collapsible-item *ngFor="let item of authors; let i = index;" >
         <mz-collapsible-item-header>
           {{item.name}} | {{item.subject}}
          <div class="logo">
