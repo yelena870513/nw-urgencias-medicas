@@ -32,14 +32,7 @@ $has-error: #e53935;
     margin-bottom: 4px;
   }
 }
-body {
-  font-size: 17px;
-  -webkit-user-select: none ;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 
-}
 table {
   &.striped {
     > tbody {
@@ -297,7 +290,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   border-bottom: 1px solid transparent !important;
   a {
       font-size: 16px;
-    margin-left: 3em;
       &:hover {
         text-decoration: none;
         color: transparent;
@@ -340,8 +332,4 @@ footer{
 .menu-select {
   background: #3cba54;
   text-decoration: underline;
-}
-#collection-exit .collection .collection-item a {
-  font-size: 16px;
-  margin-left: 3em;
 }

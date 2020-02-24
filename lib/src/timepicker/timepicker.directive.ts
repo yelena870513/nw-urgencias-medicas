@@ -88,6 +88,7 @@ export class MzTimepickerDirective extends HandlePropChanges implements OnInit, 
 
     if (this.ngControl) {
       // set ngControl value according to selected time in timepicker
+      // @ts-ignore
       this.inputElement.on('change', (event: JQuery.Event<HTMLInputElement>) => {
         this.ngControl.control.setValue(event.target.value);
 
