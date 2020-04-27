@@ -78,7 +78,8 @@
     "FARENHEIT":"FARENHEIT"
   },
   "SEARCH": {
-    "GO": "Ver más"
+    "GO": "Ver más",
+    "NORESULTS": "Sin resultados"
   }
   ,
   "team":"Equipo Realizador",

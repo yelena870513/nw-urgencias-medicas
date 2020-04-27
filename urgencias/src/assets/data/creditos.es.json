@@ -19,12 +19,12 @@
     "order":"4",
     "tipo":"equipo"
   },
-  { "cargo":"CALIDAD",
+  { "cargo":"CONTROL DE CALIDAD",
     "name":"Hissel Lamanier Regueiferos",
     "order":"5",
     "tipo":"equipo"
   },
-  { "cargo":"GESTIÓN DE LA CALIDAD",
+  { "cargo":"GESTIÓN DE LA CALIDAD Y AUDITORÍA",
     "name":" Mercedes María Sosa Hernández, Anays gómez García",
     "order":"6",
     "tipo":"equipo"
@@ -57,7 +57,7 @@
   {
     "name": "Rafael Ernesto Machado Martínez",
     "subject": "Especialidad Medicina Intensiva y Emergencias",
-    "body": "<p>(Villa Clara, Cuba, 1992). Graduado de Doctor en Medicina en el año 2016. Desde entonces trabaja en el Centro de Investigaciones Médico-Quirúrgicas (CIMEQ) Especialidad Medicina Intensiva y Emergencias. Premio al Mérito Científico. Autor y coautor de varios artículos aparecidos en publicaciones cientñificas. Profesor Instructor de la Universidad de Ciencias Médicas de La Habana.</p>",
+    "body": "<p>(Villa Clara, Cuba, 1992). Graduado de Doctor en Medicina en el año 2016. Desde entonces trabaja en el Centro de Investigaciones Médico-Quirúrgicas (CIMEQ) Especialidad Medicina Intensiva y Emergencias. Premio al Mérito Científico. Autor y coautor de varios artículos aparecidos en publicaciones científicas. Profesor Instructor de la Universidad de Ciencias Médicas de La Habana.</p>",
     "pic": "Rafael.png",
     "tag": "Universitario",
     "tipo":"autor"

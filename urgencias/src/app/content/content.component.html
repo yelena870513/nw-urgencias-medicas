@@ -3,11 +3,11 @@
     {{'CONTENIDO.SIDE' | translate}}
 </button>
 <div class="search-wrapper-mn">
-    <i class="material-icons search-action">search</i>
+    <i class="material-icons search-action" title="Indique su criterio de búsqueda">search</i>
     <input class="searchReference" #searchInput placeholder="Buscar" id="searchReference"  (keyup)="startSearch($event, false)">
-    <i class="material-icons search-action" *ngIf="searchMode" (click)="offSearch()">close</i>
+    <i class="material-icons search-action" *ngIf="searchMode" (click)="offSearch()" title="Limpiar búsqueda">close</i>
 </div>
-<div class="section article" *ngIf="readMode && current" goResult searchString="{{searchString}}">
+<div class="section article" *ngIf="readMode && current" light-container goResult searchString="{{searchString}}" #contentReference>
     <div class="col s12 m8 16">
         <p [innerHtml]="current.texto  | liteSearch : searchString">
         </p>

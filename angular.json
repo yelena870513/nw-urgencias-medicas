@@ -136,6 +136,7 @@
               "node_modules/@mdi/font/css/materialdesignicons.min.css",
               "node_modules/prismjs/themes/prism.css",
               "vendor/css/ghpages-materialize.css",
+              "node_modules/ngx-lightbox/lightbox.css",
               "urgencias/src/styles.scss"
             ],
             "scripts": [

@@ -4,6 +4,8 @@ import {DataService} from "../data/data.service";
 import {TranslateService} from "@ngx-translate/core";
 import {MzToastService} from "ngx-materialize";
 import _ from 'lodash';
+import {Lightbox} from "ngx-lightbox";
+import {LightboxService} from "../service/lightbox.service";
 
 @Component({
     selector: 'app-content',
@@ -11,7 +13,7 @@ import _ from 'lodash';
     styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit, AfterViewInit {
-
+    private _album = [];
     theme: string;
     contents: any [];
     totals: any [];
@@ -19,8 +21,11 @@ export class ContentComponent implements OnInit, AfterViewInit {
     readMode = true;
     searchMode = false;
     hasError = false;
+    images: NodeListOf<HTMLImageElement>;
+    lightboxLoaded = false;
     searchString = '';
     @ViewChild("sidenav") sidenav: any;
+    @ViewChild("contentReference") contentReference: any;
     @ViewChild("searchInput") searchInput: any;
 
     constructor(
@@ -30,6 +35,8 @@ export class ContentComponent implements OnInit, AfterViewInit {
         private toastService: MzToastService,
         private changeDetectorRef: ChangeDetectorRef,
         private router: Router,
+        private _lightbox: Lightbox,
+        private _lightBoxService: LightboxService
     ) {
         // this language will be used as a fallback when a translation isn't found in the current language
         this.translate.setDefaultLang('es');
@@ -53,7 +60,13 @@ export class ContentComponent implements OnInit, AfterViewInit {
                     this.totals = data.contenido;
                     this.current = this.contents[0];
                 });
+            this.lightboxLoaded = false;
+            this._album = [];
         });
+
+        this._lightBoxService.lightBoxInitiator.subscribe((ev) => {
+            this.initLightBox(ev);
+        })
     }
 
     ngOnInit() {
@@ -66,7 +79,10 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.searchString = searchString;
         setTimeout(() => {
             //this.transpileImages();
-        }, 3000);
+            if (!_.isNil(searchString)) {
+                this.contentReference.nativeElement.click();
+            }
+        }, 1000);
         this.sidenav.opened = false;
     }
 
@@ -99,7 +115,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.searchInput.nativeElement.value = '';
-
     }
 
     private transpileImages() {
@@ -117,6 +132,59 @@ export class ContentComponent implements OnInit, AfterViewInit {
             t.style.width = "100%";
         }
         this.changeDetectorRef.markForCheck();
+    }
+
+    private initLightBox(ev) {
+        if (!this.lightboxLoaded) {
+            const self = this;
+            this.images = document.querySelectorAll('.section.article img');
+            let promises = [];
+            for (let i = 0; i < self.images.length; i++) {
+                const item = self.images[i];
+                promises = [...promises, self.toDataUrl({
+                    src: item.src,
+                    alt: item.alt,
+                    thumb: item.src
+                })];
+                Promise.all(promises)
+                    .then((album) => {
+                        this._album = album;
+                    })
+                    .catch(reason => {
+                        this._album = [];
+                    })
+
+                item.addEventListener('click', (ev) => {
+                    self._lightbox.open(self._album, i);
+                });
+            }
+            self.lightboxLoaded = true;
+            if (ev.tagName === 'IMG') {
+                const positionSelected = _.findIndex(self._album, (el) => {
+                    return el.src === ev.src;
+                });
+                if (positionSelected !== -1) {
+                    self._lightbox.open(self._album, positionSelected);
+                }
+            }
+        }
+    }
+
+    private toDataUrl(item) {
+        return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                    item.src = reader.result;
+                    resolve(item);
+                }
+                reader.readAsDataURL(xhr.response);
+            };
+            xhr.open('GET', item.src);
+            xhr.responseType = 'blob';
+            xhr.send();
+        })
     }
 
 

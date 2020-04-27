@@ -66,7 +66,6 @@ export class GoResultDirective {
       let cursor = this.cursor;
       cursor.id = new Date().getTime().toString();
       const cursor_el = document.getElementById(cursor.id);
-      // window.scrollTo(cursor_el.offsetLeft, cursor_el.offsetTop);
       window.scrollTo(0, cursor_el.offsetTop);
       cursor_el.scrollIntoView();
     }
