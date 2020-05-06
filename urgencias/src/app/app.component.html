@@ -41,7 +41,7 @@
 
     <mz-collection id="collection">
       <mz-collection-item  *ngFor="let item of quests">
-        <a  *ngIf="!item.hasChild" class="waves-effect" [routerLink]="[item.url]" >
+        <a style="margin-left: 3em"  *ngIf="!item.hasChild" class="waves-effect" [routerLink]="[item.url]" >
           <!--<i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>-->
          <span class="grey-text"> {{ item.name | translate}}</span>
         </a>
@@ -67,7 +67,7 @@
 
     <mz-collection id="collection-exit">
       <mz-collection-item>
-        <a class="waves-effect"  (click)="fixedFooterModal.openModal()">
+        <a style="margin-left: 3em" class="waves-effect"  (click)="fixedFooterModal.openModal()">
           <span class="grey-text"> {{'EXIT' | translate}}</span>
         </a>
       </mz-collection-item>

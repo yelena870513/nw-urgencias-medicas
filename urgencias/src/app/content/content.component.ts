@@ -107,6 +107,16 @@ export class ContentComponent implements OnInit, AfterViewInit {
         }
     }
 
+    onClickedAugment($event) {
+        $event.stopPropagation();
+        this.startSearch({
+            keyCode: 13,
+            target: {
+                value: this.searchInput.nativeElement.value
+            }
+        }, false);
+    }
+
     offSearch() {
         this.readMode = true;
         this.searchMode = false;
@@ -143,7 +153,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
                 const item = self.images[i];
                 promises = [...promises, self.toDataUrl({
                     src: item.src,
-                    alt: item.alt,
+                    caption: item.alt,
                     thumb: item.src
                 })];
                 Promise.all(promises)

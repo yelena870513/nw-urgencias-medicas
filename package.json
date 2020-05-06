@@ -21,6 +21,7 @@
     "serve:alt": "ng serve --project=demo --port 4203",
     "serve:urgencias": "ng serve --project=urgencias --port 4201 -o",
     "build:demo": "ng build demo",
+    "build:urgencias": "ng build urgencias",
     "build:lib": "ng build lib",
     "postbuild:lib": "cpx ./README.md ./dist/lib",
     "link:lib": "rimraf node_modules/ngx-materialize && linklocal",

@@ -3,7 +3,7 @@
     {{'CONTENIDO.SIDE' | translate}}
 </button>
 <div class="search-wrapper-mn">
-    <i class="material-icons search-action" title="Indique su criterio de búsqueda">search</i>
+    <i class="material-icons search-action" title="Indique su criterio de búsqueda" (click)="onClickedAugment($event)">search</i>
     <input class="searchReference" #searchInput placeholder="Buscar" id="searchReference"  (keyup)="startSearch($event, false)">
     <i class="material-icons search-action" *ngIf="searchMode" (click)="offSearch()" title="Limpiar búsqueda">close</i>
 </div>
