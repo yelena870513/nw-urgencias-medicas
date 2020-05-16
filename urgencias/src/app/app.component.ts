@@ -1,22 +1,23 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import * as _ from 'lodash';
 //noinspection TypeScriptCheckImport
-import {MalihuScrollbarService} from 'ngx-malihu-scrollbar';
+import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 import {
     MzCollapsibleComponent,
     MzSidenavCollapsibleComponent,
     MzSidenavComponent,
-    MzToastService
+    MzToastService,
 } from 'ngx-materialize';
-import {filter} from 'rxjs/operators';
-import {TranslateService} from '@ngx-translate/core';
-import {DataService} from './data/data.service';
-import * as _ from 'lodash';
+import { filter } from 'rxjs/operators';
+import { DataService } from './data/data.service';
 
 declare var $: any;
 declare var win: any;
 declare var window: any;
 declare var OutApp: any;
+declare var Swal: any;
 
 abstract class SectionRoutesPair {
     section: string;
@@ -40,11 +41,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     theme: string;
 
     constructor(private router: Router,
-                private mScrollbarService: MalihuScrollbarService,
-                private translate: TranslateService,
-                private toastService: MzToastService,
-                private dataService: DataService,
-                private route: ActivatedRoute) {
+        private mScrollbarService: MalihuScrollbarService,
+        private translate: TranslateService,
+        private toastService: MzToastService,
+        private dataService: DataService,
+        private route: ActivatedRoute) {
         // this language will be used as a fallback when a translation isn't found in the current language
         this.translate.setDefaultLang('es');
 
@@ -79,7 +80,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     initScrollbar() {
         //noinspection TypeScriptUnresolvedFunction
-        this.mScrollbarService.initScrollbar(this.scrollElement, {axis: 'y', theme: 'minimal', scrollInertia: 100});
+        this.mScrollbarService.initScrollbar(this.scrollElement, { axis: 'y', theme: 'minimal', scrollInertia: 100 });
     }
 
     populateSideNavWithRoutesGroupedBySections() {
@@ -93,7 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     if (existingSection) {
                         existingSection.routes.push(currentValue);
                     } else {
-                        returnValues.push({section: section, routes: [currentValue]});
+                        returnValues.push({ section: section, routes: [currentValue] });
                     }
                 }
                 return returnValues;
@@ -104,19 +105,19 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     populateAlternativeMenu() {
         this.dataService.getContent(this.translate.currentLang)
             .subscribe((data: any) => {
-                    //noinspection TypeScriptUnresolvedFunction
-                    const categories = data.tema.sort((a: any, b: any) => a.orden - b.orden).map((m: any) => m.titulo);
-                    this.menu = [
-                        // {name: 'NAV.START', url: '/home'},
-                        {name: 'NAV.HOME', url: '/content', hasChild: true, children: categories},
+                //noinspection TypeScriptUnresolvedFunction
+                const categories = data.tema.sort((a: any, b: any) => a.orden - b.orden).map((m: any) => m.titulo);
+                this.menu = [
+                    // {name: 'NAV.START', url: '/home'},
+                    { name: 'NAV.HOME', url: '/content', hasChild: true, children: categories },
 
 
-                    ];
+                ];
 
-                    this.quests = [{name: 'NAV.TABLE', url: '/ejercicios', hasChild: false}];
+                this.quests = [{ name: 'NAV.TABLE', url: '/ejercicios', hasChild: false }];
 
-                    this.credits = [{name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author']}];
-                },
+                this.credits = [{ name: 'NAV.CREDIT', url: '/credits', hasChild: true, children: ['team', 'author'] }];
+            },
                 (err) => {
                     alert(JSON.stringify(err));
                 });
@@ -131,11 +132,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     clBackToTop() {
 
-        var pxShow = 500,
-            goTopButton = $('.go-top');
+        const pxShow = 500;
+        const goTopButton = $('.go-top');
         goTopButton.on('click', function (ev) {
             $('body,html').animate({
-                scrollTop: 0
+                scrollTop: 0,
             }, 600);
         });
 
@@ -147,21 +148,34 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         $(window).on('scroll', function () {
             if ($(window).scrollTop() >= pxShow) {
                 if (goTopButton.hasClass('hide')) {
-                    goTopButton.removeClass('hide')
+                    goTopButton.removeClass('hide');
                 }
             } else {
-                goTopButton.addClass('hide')
+                goTopButton.addClass('hide');
             }
         });
-    };
+    }
 
     Salir() {
-
+        const self = this;
+        Swal.fire({
+            title: self.translate.instant('MODAL.SALIR'),
+            text: '',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3cba54',
+            cancelButtonColor: '#d33',
+            confirmButtonText: self.translate.instant('MODAL.ACCEPT'),
+        }).then((result) => {
+            if (result.value) {
+                self.LogOut();
+            }
+        });
     }
 
     LogOut() {
 
-        //Preguntar primero desde que dispositivo se navega
+        // Preguntar primero desde que dispositivo se navega
         if (!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
             try {
                 win.close(true);

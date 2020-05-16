@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ContentComponent} from './content.component';
-import {RouterModule} from '@angular/router';
-import {ROUTES} from './content.routing';
-import {MzToastModule, MzCardModule, MzPaginationModule} from "ngx-materialize";
-import {MzSidenavModule} from "ngx-materialize";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {HttpClient} from "@angular/common/http";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {SearchForPipe} from "../pipes/search-for";
-import {LiteSearchPipe} from "../pipes/lite-search";
-import {HighlightsPipe} from "../pipes/highlights";
+import { HttpClient } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LightboxModule } from 'ngx-lightbox';
+import { MzCardModule, MzPaginationModule, MzToastModule } from 'ngx-materialize';
+import { MzSidenavModule } from 'ngx-materialize';
 //noinspection TypeScriptCheckImport
-import {NgxPaginationModule} from 'ngx-pagination';
-import {GoResultDirective} from "../directives/go-result.directive";
-import {LogoPipe} from "../pipes/logo";
-import {LightboxModule} from "ngx-lightbox";
-import {LightContainerDirective} from "../directives/light.container.directive";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { GoResultDirective } from '../directives/go-result.directive';
+import { LightContainerDirective } from '../directives/light.container.directive';
+import { HighlightsPipe } from '../pipes/highlights';
+import { LiteSearchPipe } from '../pipes/lite-search';
+import { LogoPipe } from '../pipes/logo';
+import { SearchForPipe } from '../pipes/search-for';
 import { LightboxService } from '../service/lightbox.service';
+import { ContentComponent } from './content.component';
+import { ROUTES } from './content.routing';
 
 
 // AoT requires an exported function for factories
@@ -34,14 +34,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     MzCardModule,
     NgxPaginationModule,
     MzPaginationModule,
-      TranslateModule.forRoot({
+    TranslateModule.forRoot({
           loader: {
               provide: TranslateLoader,
               useFactory: HttpLoaderFactory,
-              deps: [HttpClient]
-          }
+              deps: [HttpClient],
+          },
       }),
-      LightboxModule
+    LightboxModule
   ],
   declarations: [
       ContentComponent,
