@@ -60,12 +60,17 @@ export class ContentComponent implements OnInit, AfterViewInit {
                     this.totals = data.contenido;
                     this.current = this.contents[0];
                 });
-            this.lightboxLoaded = false;
-            this._album = [];
+            this.resetLightBox();
         });
 
+        setTimeout(() => {
+            this.initLightBox(undefined);
+        }, 5000)
+
         this._lightBoxService.lightBoxInitiator.subscribe((ev) => {
-            this.initLightBox(ev);
+            if (!this.lightboxLoaded) {
+                this.initLightBox(ev);
+            }
         })
     }
 
@@ -79,6 +84,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.searchString = searchString;
         setTimeout(() => {
             //this.transpileImages();
+            this.resetLightBox();
             if (!_.isNil(searchString)) {
                 this.contentReference.nativeElement.click();
             }
@@ -145,30 +151,29 @@ export class ContentComponent implements OnInit, AfterViewInit {
     }
 
     private initLightBox(ev) {
-        if (!this.lightboxLoaded) {
-            const self = this;
-            this.images = document.querySelectorAll('.section.article img');
-            let promises = [];
-            for (let i = 0; i < self.images.length; i++) {
-                const item = self.images[i];
-                promises = [...promises, self.toDataUrl({
-                    src: item.src,
-                    caption: item.alt,
-                    thumb: item.src
-                })];
-                Promise.all(promises)
-                    .then((album) => {
-                        this._album = album;
-                    })
-                    .catch(reason => {
-                        this._album = [];
-                    })
+        const self = this;
+        this.images = document.querySelectorAll('.section.article img');
+        let promises = [];
+        for (let i = 0; i < self.images.length; i++) {
+            const item = self.images[i];
+            promises = [...promises, self.toDataUrl({
+                src: item.src,
+                caption: item.alt,
+                thumb: item.src
+            })];
+            Promise.all(promises)
+                .then((album) => {
+                    this._album = album;
+                })
+                .catch(reason => {
+                    this._album = [];
+                })
 
-                item.addEventListener('click', (ev) => {
-                    self._lightbox.open(self._album, i);
-                });
-            }
-            self.lightboxLoaded = true;
+            item.addEventListener('click', (ev) => {
+                self._lightbox.open(self._album, i);
+            });
+        }
+        if (!_.isNil(ev)) {
             if (ev.tagName === 'IMG') {
                 const positionSelected = _.findIndex(self._album, (el) => {
                     return el.src === ev.src;
@@ -178,6 +183,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
                 }
             }
         }
+        self.lightboxLoaded = true;
     }
 
     private toDataUrl(item) {
@@ -195,6 +201,11 @@ export class ContentComponent implements OnInit, AfterViewInit {
             xhr.responseType = 'blob';
             xhr.send();
         })
+    }
+
+    private resetLightBox() {
+        this._album = [];
+        this.lightboxLoaded = false;
     }
 
 

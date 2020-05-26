@@ -60,7 +60,12 @@ table {
 }
 
 /* Code highlight */
-
+body {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 code[class*="language-"] {
   color: #000 !important;
   text-shadow: none !important;

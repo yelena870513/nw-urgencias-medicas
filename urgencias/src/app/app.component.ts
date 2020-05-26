@@ -161,7 +161,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         Swal.fire({
             title: self.translate.instant('MODAL.SALIR'),
             text: '',
-            icon: 'warning',
+            imageUrl: 'assets/images/logo/urgencias96x96.png',
             showCancelButton: true,
             confirmButtonColor: '#3cba54',
             cancelButtonColor: '#d33',
