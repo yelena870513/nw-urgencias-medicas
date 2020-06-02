@@ -1,6 +1,7 @@
 .search-action{
   cursor: help;
 }
+
 .section.article{
    h4 {
     font-size: 22px;
@@ -8,25 +9,35 @@
      font-weight: 500;
   }
 }
+
 span.badge{
   float: none;
 }
+
 .white {
   background-color: #def8e6 !important;
 }
+
 .searchReference {
   width: 90%;
 }
+
 .search-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .search-wrapper-mn {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .user-view {
   margin-bottom: 29px;
+}
+
+img.circle.avatar:hover {
+  cursor: default;
 }

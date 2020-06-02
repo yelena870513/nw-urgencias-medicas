@@ -162,16 +162,27 @@ mz-modal{
     height: 35% !important;
   }
 }
+
 .footer{
   width: 1024px !important;
 }
+
 .side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
   text-transform: lowercase;
 }
+
 .side-nav .collapsible-body li a::first-letter, .side-nav.fixed .collapsible-body li a::first-letter {
   text-transform: uppercase;
 }
+
 .active{
   background: #4CAF50;
   text-decoration: underline;
+}
+
+.unSelector {
+  cursor: default;
+  img {
+    cursor: default;
+  }
 }
