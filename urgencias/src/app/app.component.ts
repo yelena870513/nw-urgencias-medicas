@@ -181,13 +181,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 win.close(true);
             } catch (reason) {
                 window.close();
-
             }
 
         } else {
             window.close();
-
-
         }
 
     }

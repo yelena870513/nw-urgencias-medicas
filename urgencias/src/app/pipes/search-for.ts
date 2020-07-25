@@ -20,7 +20,8 @@ export class SearchForPipe implements PipeTransform {
 
         //noinspection TypeScriptUnresolvedFunction
         if (!_.isNil(item.texto)) {
-            const temp = item.texto.toLowerCase().replace(/<\/?[^>]+(>|$)/g, '');
+            const temp = item.texto.toLowerCase()
+                .replace(/<\/?[^>]+(>|$)/g, '');
 
 
             if ( temp.search(searchString) !== -1) {
