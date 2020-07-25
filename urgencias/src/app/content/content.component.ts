@@ -60,6 +60,12 @@ export class ContentComponent implements OnInit, AfterViewInit {
                         .sort((a: any, b: any) => a.orden - b.orden);
                     this.totals = data.contenido;
                     this.current = this.contents[0];
+
+                    if (this.contents.length < 2) {
+                        if (this.sidenav && this.sidenav.opened ) {
+                            this.sidenav.opened = false;
+                        }
+                    }
                 });
             this.resetLightBox();
         });
