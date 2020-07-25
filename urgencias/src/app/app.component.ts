@@ -166,6 +166,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             confirmButtonColor: '#3cba54',
             cancelButtonColor: '#d33',
             confirmButtonText: self.translate.instant('MODAL.ACCEPT'),
+            cancelButtonText: self.translate.instant('MODAL.CANCEL'),
         }).then((result) => {
             if (result.value) {
                 self.LogOut();

@@ -66,6 +66,8 @@ export class ContentComponent implements OnInit, AfterViewInit {
                             this.sidenav.opened = false;
                         }
                     }
+
+                    this.offSearch();
                 });
             this.resetLightBox();
         });

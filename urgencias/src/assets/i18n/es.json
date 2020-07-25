@@ -79,7 +79,8 @@
   },
   "SEARCH": {
     "GO": "Ver más",
-    "NORESULTS": "Sin resultados"
+    "NORESULTS": "Sin resultados",
+    "CLEAR": "Limpiar búsqueda."
   }
   ,
   "team":"Equipo Realizador",

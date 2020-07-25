@@ -16,7 +16,7 @@
         id="searchReference"
         (keyup)="startSearch($event, false)">
     <i class="material-icons search-action" *ngIf="searchMode"
-        (click)="offSearch()" title="Limpiar búsqueda">close</i>
+        (click)="offSearch()" title="{{ 'SEARCH.CLEAR' | translate }}">close</i>
 </div>
 <div class="section article" *ngIf="readMode && current" light-container
     goResult searchString="{{searchString}}" #contentReference>
