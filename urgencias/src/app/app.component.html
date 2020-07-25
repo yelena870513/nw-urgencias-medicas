@@ -8,7 +8,7 @@
 
     <mz-sidenav-header>
       <a [routerLink]="'home'" routerLinkActive="unSelector">
-        <img class="angular-logo" src="assets/images/urgencias.png">
+        <img class="angular-logo" src="assets/images/logo/urgencias96x96.png">
       </a>
       <h5 class="materialize-name center-align white-text">{{ 'SIDEBAR.TITLE' | translate }}</h5>
     </mz-sidenav-header>
@@ -42,7 +42,6 @@
     <mz-collection id="collection">
       <mz-collection-item  *ngFor="let item of quests">
         <a style="margin-left: 3em"  *ngIf="!item.hasChild" class="waves-effect" [routerLink]="[item.url]" >
-          <!--<i mz-icon-mdi [icon]="'cards-outline'" class="grey-text lighten-5"></i>-->
          <span class="grey-text"> {{ item.name | translate}}</span>
         </a>
       </mz-collection-item>
@@ -101,9 +100,6 @@
   </div>
 </footer>
 <mz-modal #fixedFooterModal [fixedFooter]="true" [bottomSheet]="false" class="exit">
-<!--  <mz-modal-header>-->
-<!--    <h4 class="text-center">Informaci&oacute;n</h4>-->
-<!--  </mz-modal-header>-->
   <mz-modal-content>
     <p class="text-accent-3 text-center">{{ 'MODAL.SALIR'| translate}}</p>
   </mz-modal-content>

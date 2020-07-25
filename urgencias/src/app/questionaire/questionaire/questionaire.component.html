@@ -8,23 +8,24 @@
             </mz-card-title>
             <mz-card-content>
                 <div class="row">
-                    <div class="col m12 s8 l8 xl8"  *ngIf="question.type === 'radio'">
+                    <div class="col m12 s8 l8 xl8" *ngIf="question.type === 'radio'">
                         <mz-radio-button-container>
                             <input mz-radio-button
                                    *ngFor="let q of question.questionSet"
                                    [label]="q.text"
                                    [withGap]="true"
+                                   [disabled]="question.isLocked"
                                    id="{{q.id}}"
                                    name="{{question.group}}"
                                    type="radio"
-                                   (change)="onChange(q,$event)"
+                                   (change)="onChange(q, $event, question)"
                                    [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue)}"
                             >
                         </mz-radio-button-container>
                         <div *ngIf="question.type === 'radio'">
                             <button type="button"
                                     class="btn btn-primary list"
-                                    (click)="question.showAnswer=!question.showAnswer">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
+                                    (click)="onShowAnswerClick(question)">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
                             <div *ngIf="question.showAnswer">
                                 <ul class="nav nav-stack">
                                     <li class="margin-top-5" *ngFor="let qa of question.questionSet">
@@ -42,19 +43,22 @@
                             <input mz-input
                                    [label]="'QUESTION.TYPE_ANSWER' | translate"
                                    [validate]="true"
+                                   [disabled]="question.isLocked"
                                    id="email-input"
-
+                                   maxlength="150"
                                    autocomplete="question.questionSet"
                                    length="150"
                                    type="text">
                         </mz-input-container>
                         <button type="button"
                                 class="btn btn-primary list"
-                                (click)="question.showAnswer=!question.showAnswer">{{ 'QUESTION.SHOW_ANSWER' | translate }}</button>
+                                (click)="onShowAnswerClick(question)">
+                                {{ 'QUESTION.SHOW_ANSWER' | translate }}
+                        </button>
                         <div *ngIf="question.showAnswer">
                             <ul class="nav nav-stack">
                                 <li class="margin-top-5" *ngFor="let qa of question.questionSet">
-                                    <span class="label label-info">{{qa.text}}</span>
+                                    <span class="label label-info">{{ qa.text }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -63,8 +67,6 @@
                 </div>
             </mz-card-content>
             <mz-card-action>
-
-
             </mz-card-action>
         </mz-card>
     </div>

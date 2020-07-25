@@ -1,16 +1,16 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {DataService} from "../../data/data.service";
-import {TranslateService} from "@ngx-translate/core";
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { DataService } from '../../data/data.service';
 
 @Component({
   selector: 'app-questionaire',
   templateUrl: './questionaire.component.html',
-  styleUrls: ['./questionaire.component.scss']
+  styleUrls: ['./questionaire.component.scss'],
 })
 export class QuestionaireComponent implements OnInit {
 
   questions: any[] = [];
-  page =1;
+  page = 1;
   constructor( private dataService: DataService,
                private translate: TranslateService,
 
@@ -21,7 +21,7 @@ export class QuestionaireComponent implements OnInit {
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     this.translate.use('es');
     this.dataService.getQuestions(translate.currentLang)
-        .subscribe((data: any) =>this.questions=data.docs );
+        .subscribe((data: any) => this.questions = data.docs );
   }
 
   ngOnInit() {
@@ -31,8 +31,17 @@ export class QuestionaireComponent implements OnInit {
         });
   }
 
-  onChange($item, $event){
+  onChange($item, $event, q) {
+    if (!q.isLocked) {
+      q.isLocked = true;
+    }
    $item.returnValue = $event.returnValue;
+  }
+
+  onShowAnswerClick(question) {
+    if (question.isLocked) {
+      question.showAnswer = !question.showAnswer;
+    }
   }
 
 
