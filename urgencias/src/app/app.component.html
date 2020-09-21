@@ -8,7 +8,7 @@
 
     <mz-sidenav-header>
       <a [routerLink]="'home'" routerLinkActive="unSelector">
-        <img class="angular-logo" src="assets/images/logo/urgencias96x96.png">
+        <img class="angular-logo" src="assets/images/logo/urgencias96x96.png" draggable="false" (drop)="false">
       </a>
       <h5 class="materialize-name center-align white-text">{{ 'SIDEBAR.TITLE' | translate }}</h5>
     </mz-sidenav-header>

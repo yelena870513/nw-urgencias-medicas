@@ -184,5 +184,7 @@ mz-modal{
   cursor: default;
   img {
     cursor: default;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 }
