@@ -1770,8 +1770,14 @@
     },
     {
       "cargo": "ISBN",
-      "name": "  978-959-237-792-9 © Copyright CITMATEL Todos los derechos reservados",
+      "name": "978-959-237-792-9",
       "order": "7",
+      "tipo": "equipo"
+    },
+    {
+      "cargo": "COPYRIGHT",
+      "name": "Copyright © 2020 CITMATEL Todos los derechos reservados",
+      "order": "8",
       "tipo": "equipo"
     },
     {
