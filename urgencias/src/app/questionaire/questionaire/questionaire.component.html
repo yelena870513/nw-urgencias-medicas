@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 8, currentPage: page }">
         <mz-card
-                class="green  white-text"
+                class="green-custom  white-text"
                 [hoverable]="true">
             <mz-card-title>
                {{question.header}}

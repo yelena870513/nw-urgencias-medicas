@@ -4,33 +4,29 @@
 <ng-template #elseBlock>
     <h5 class="light">{{theme}}</h5>
 </ng-template>
-<button mz-button id="btn-topic" class="waves-effect waves-light btn" 
-    [ngClass]="{'hide': contents?.length < 2}">
+<button mz-button id="btn-topic" class="waves-effect waves-light btn" [ngClass]="{'hide': contents?.length < 2}">
     {{'CONTENIDO.SIDE' | translate}}
 </button>
 <div class="search-wrapper-mn">
-    <i class="material-icons search-action" 
-        title="Indique su criterio de búsqueda"
+    <i class="material-icons search-action" title="Indique su criterio de búsqueda"
         (click)="onClickedAugment($event)">search</i>
-    <input class="searchReference" #searchInput placeholder="Buscar"
-        id="searchReference"
+    <input class="searchReference" #searchInput placeholder="Buscar" id="searchReference"
         (keyup)="startSearch($event, false)">
-    <i class="material-icons search-action" *ngIf="searchMode"
-        (click)="offSearch()" title="{{ 'SEARCH.CLEAR' | translate }}">close</i>
+    <i class="material-icons search-action" *ngIf="searchMode" (click)="offSearch()"
+        title="{{ 'SEARCH.CLEAR' | translate }}">close</i>
 </div>
-<div class="section article" *ngIf="readMode && current" light-container
-    goResult searchString="{{searchString}}" #contentReference>
+<div class="section article" *ngIf="readMode && current" light-container goResult searchString="{{searchString}}"
+    #contentReference>
     <div class="col s12 m8 16">
         <p [innerHtml]="current.texto  | liteSearch : searchString">
         </p>
     </div>
 </div>
 <div class="section" *ngIf="searchMode">
-    <div class="row" *ngIf="(totals | searchFor: searchString)" >
-        <div class="col s3 m4 l4" *ngFor="let t of totals | searchFor: searchString |paginate: { itemsPerPage: 3, currentPage: page }">
-            <mz-card
-                    class="blue-green  green-text"
-                    [hoverable]="true">
+    <div class="row" *ngIf="(totals | searchFor: searchString)">
+        <div class="col s3 m4 l4"
+            *ngFor="let t of totals | searchFor: searchString | sortSearch: theme | paginate: { itemsPerPage: 3, currentPage: page }">
+            <mz-card class="blue-green  green-text" [hoverable]="true">
                 <mz-card-title>
                     {{t.titulo}}
                 </mz-card-title>
@@ -48,25 +44,18 @@
     <div class="row" *ngIf="(totals | searchFor: searchString)">
 
         <div class="col s12 m8 l6">
-            <mz-pagination
-                           [enableFirstAndLastPageButtons]="true"
-                           [itemsPerPage]="3"
-                           [totalItems]="(totals | searchFor: searchString).length"
-                           (pageChange)="page = $event"
-            >
+            <mz-pagination [enableFirstAndLastPageButtons]="true" [itemsPerPage]="3"
+                [totalItems]="(totals | searchFor: searchString).length" (pageChange)="page = $event">
             </mz-pagination>
         </div>
     </div>
     <div class="row" *ngIf="!(totals | searchFor: searchString)">
         <div class="col s12 m8 l6">
-           <h4> {{'SEARCH.NORESULTS' | translate}}</h4>
+            <h4> {{'SEARCH.NORESULTS' | translate}}</h4>
         </div>
     </div>
 </div>
-<mz-sidenav [id]="'topic'"
-            [collapseButtonId]="'btn-topic'"
-            [edge]="'right'"
-            #sidenav>
+<mz-sidenav [id]="'topic'" [collapseButtonId]="'btn-topic'" [edge]="'right'" #sidenav>
 
     <mz-sidenav-header>
         <div class="user-view">
@@ -75,9 +64,7 @@
 
     </mz-sidenav-header>
 
-    <mz-sidenav-link  *ngFor="let content of contents" 
-        [active]="content.titulo==current.titulo">
-        <a [ngClass]="{'search': searchMode}" 
-            (click)="openRead(content, true, '')">{{content.titulo}}</a>
+    <mz-sidenav-link *ngFor="let content of contents" [active]="content.titulo==current.titulo">
+        <a [ngClass]="{'search': searchMode}" (click)="openRead(content, true, '')">{{content.titulo}}</a>
     </mz-sidenav-link>
 </mz-sidenav>

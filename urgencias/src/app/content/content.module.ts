@@ -15,6 +15,7 @@ import { HighlightsPipe } from '../pipes/highlights';
 import { LiteSearchPipe } from '../pipes/lite-search';
 import { LogoPipe } from '../pipes/logo';
 import { SearchForPipe } from '../pipes/search-for';
+import { SortSearch } from '../pipes/sort-search';
 import { LightboxService } from '../service/lightbox.service';
 import { ContentComponent } from './content.component';
 import { ROUTES } from './content.routing';
@@ -41,7 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
               deps: [HttpClient],
           },
       }),
-    LightboxModule
+    LightboxModule,
   ],
   declarations: [
       ContentComponent,
@@ -51,7 +52,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       GoResultDirective,
       LightContainerDirective,
       LogoPipe,
+      SortSearch,
   ],
-  providers: [LightboxService]
+  providers: [LightboxService],
 })
 export class ContentModule { }

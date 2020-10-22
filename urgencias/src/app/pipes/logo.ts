@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'logo' })
 export class LogoPipe implements PipeTransform {
     transform(value: string): any {
-        switch (value){
+        switch (value) {
             case 'Traumas':
                 return 'assets/images/logo/logo-trau.png';
             case 'Shock':
@@ -40,5 +40,4 @@ export class LogoPipe implements PipeTransform {
                 return 'assets/images/logo/logo-other.png';
         }
     }
-
 }
