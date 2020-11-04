@@ -376,3 +376,9 @@ img:hover{
 .green-custom {
   background-color: #3a5a34;
 }
+
+[type="radio"].ans-decorated+label {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+}

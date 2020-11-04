@@ -32,10 +32,6 @@ export class SearchForPipe implements PipeTransform {
 
     });
 
-    if (result.length > 0) {
-      return result;
-    } else {
-
-    }
+    return result;
   }
 }

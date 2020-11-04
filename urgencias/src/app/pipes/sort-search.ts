@@ -12,7 +12,7 @@ export class SortSearch implements PipeTransform {
 
             sortedResults = [
                 ...sortedResults,
-                searchResults
+                ...searchResults
                     .filter((f: any) => f.tema.titulo !== currentTheme)
                     .sort((a: any, b: any) => a.orden - b.orden),
             ];

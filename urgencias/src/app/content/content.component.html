@@ -26,7 +26,7 @@
     <div class="row" *ngIf="(totals | searchFor: searchString)">
         <div class="col s3 m4 l4"
             *ngFor="let t of totals | searchFor: searchString | sortSearch: theme | paginate: { itemsPerPage: 3, currentPage: page }">
-            <mz-card class="blue-green  green-text" [hoverable]="true">
+            <mz-card class="blue-green  green-text" [hoverable]="true" *ngIf="t.texto">
                 <mz-card-title>
                     {{t.titulo}}
                 </mz-card-title>
@@ -44,8 +44,10 @@
     <div class="row" *ngIf="(totals | searchFor: searchString)">
 
         <div class="col s12 m8 l6">
-            <mz-pagination [enableFirstAndLastPageButtons]="true" [itemsPerPage]="3"
-                [totalItems]="(totals | searchFor: searchString).length" (pageChange)="page = $event">
+            <mz-pagination [enableFirstAndLastPageButtons]="true"
+                [itemsPerPage]="3"
+                [totalItems]="(totals | searchFor: searchString).length"
+                (pageChange)="page = $event">
             </mz-pagination>
         </div>
     </div>

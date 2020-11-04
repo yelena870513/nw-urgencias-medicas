@@ -187,6 +187,5 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         } else {
             window.close();
         }
-
     }
 }

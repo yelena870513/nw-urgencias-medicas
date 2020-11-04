@@ -19,7 +19,7 @@
                                    name="{{question.group}}"
                                    type="radio"
                                    (change)="onChange(q, $event, question)"
-                                   [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue)}"
+                                   [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue), 'ans-decorated': (q.value && question.showAnswer)}"
                             >
                         </mz-radio-button-container>
                         <div *ngIf="question.type === 'radio'">
