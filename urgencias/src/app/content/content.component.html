@@ -41,7 +41,7 @@
             </mz-card>
         </div>
     </div>
-    <div class="row" *ngIf="(totals | searchFor: searchString)">
+    <div class="row" *ngIf="(totals | searchFor: searchString).length > 0">
 
         <div class="col s12 m8 l6">
             <mz-pagination [enableFirstAndLastPageButtons]="true"
@@ -51,7 +51,7 @@
             </mz-pagination>
         </div>
     </div>
-    <div class="row" *ngIf="!(totals | searchFor: searchString)">
+    <div class="row" *ngIf="(totals | searchFor: searchString).length < 1">
         <div class="col s12 m8 l6">
             <h4> {{'SEARCH.NORESULTS' | translate}}</h4>
         </div>

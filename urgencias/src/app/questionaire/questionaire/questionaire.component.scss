@@ -11,3 +11,8 @@ $has-error: #e53935;
 .btn.btn-primary.list {
   margin-top: 1.5em;
 }
+
+.col.s8.m12 /deep/ [type="radio"]:not(:checked)+label:before,
+.col.s8.m12 /deep/ [type="radio"]:not(:checked)+label:after {
+  border: 2px solid #ffffff !important;
+}

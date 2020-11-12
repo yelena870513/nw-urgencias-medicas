@@ -1776,7 +1776,7 @@
     },
     {
       "cargo": "COPYRIGHT",
-      "name": "Ⓡ Copyright © 2020 CITMATEL Todos los derechos reservados",
+      "name": " &copy; Copyright &reg; 2020 CITMATEL Todos los derechos reservados",
       "order": "8",
       "tipo": "equipo"
     },

@@ -138,6 +138,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.readMode = true;
         this.searchMode = false;
         this.searchString = '';
+        this.searchInput.nativeElement.value = '';
     }
 
     ngAfterViewInit() {

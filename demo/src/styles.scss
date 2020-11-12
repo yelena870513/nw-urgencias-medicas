@@ -152,3 +152,8 @@ blockquote {
     align-items: center;
   }
 }
+
+[type="radio"]:not(:checked)+label:before,
+[type="radio"]:not(:checked)+label:after {
+  border: 2px solid #ffffff !important;
+}
