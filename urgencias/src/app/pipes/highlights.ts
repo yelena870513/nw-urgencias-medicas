@@ -11,7 +11,9 @@ export class HighlightsPipe implements PipeTransform {
     }
     let exp = criteria.toLowerCase();
 
-    const html2 = html.replace(/<\/?[^>]+(>|$)/g, '');
+    let html2 = html.replace(/<\/?[^>]+(>|$)/g, '');
+    html2 = (new DOMParser).parseFromString(html2, 'text/html').
+      documentElement.textContent;
 
     exp = exp.replace(/a/gi, '[a|á]');
     exp = exp.replace(/e/gi, '[e|é]');

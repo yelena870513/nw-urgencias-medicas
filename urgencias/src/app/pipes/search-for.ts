@@ -1,6 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
+/**
+   * Returns parsed html text
+   * @return string
+   * @param htmlString
+   */
+function _getSimpleText(htmlString) {
+  return (new DOMParser).parseFromString(htmlString, 'text/html').
+    documentElement.textContent;
+}
+
 @Pipe({ name: 'searchFor' })
 export class SearchForPipe implements PipeTransform {
   transform(content: any [], searchString: string) {
@@ -20,9 +30,8 @@ export class SearchForPipe implements PipeTransform {
 
         //noinspection TypeScriptUnresolvedFunction
         if (!_.isNil(item.texto)) {
-            const temp = item.texto.toLowerCase()
+          const temp = _getSimpleText(item.texto).toLowerCase()
                 .replace(/<\/?[^>]+(>|$)/g, '');
-
 
             if ( temp.search(searchString) !== -1) {
                 result.push(item);
