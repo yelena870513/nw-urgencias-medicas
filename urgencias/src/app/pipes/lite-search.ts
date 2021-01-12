@@ -25,7 +25,7 @@ export class LiteSearchPipe implements PipeTransform {
     const regEx = new RegExp(exp, 'gi');
 
     const htmlString = (new DOMParser).parseFromString(html, 'text/html').
-      documentElement.textContent;
+      documentElement.innerHTML;
 
     const full = htmlString.replace(new RegExp(exp, 'gi'), '<span class="highlightedText badge red">$&</span>');
 
