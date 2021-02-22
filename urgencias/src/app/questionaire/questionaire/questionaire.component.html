@@ -1,31 +1,21 @@
 <div class="row">
-    <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 8, currentPage: page }">
-        <mz-card
-                class="green-custom  white-text"
-                [hoverable]="true">
+    <div class="col s8 m12" *ngFor="let question of questions | paginate : { itemsPerPage: 10, currentPage: page }">
+        <mz-card class="green-custom  white-text" [hoverable]="true">
             <mz-card-title>
-               {{question.header}}
+                {{question.header}}
             </mz-card-title>
             <mz-card-content>
                 <div class="row">
                     <div class="col m12 s8 l8 xl8" *ngIf="question.type === 'radio'">
                         <mz-radio-button-container>
-                            <input mz-radio-button
-                                   *ngFor="let q of question.questionSet"
-                                   [label]="q.text"
-                                   [withGap]="true"
-                                   [disabled]="question.isLocked"
-                                   id="{{q.id}}"
-                                   name="{{question.group}}"
-                                   type="radio"
-                                   (change)="onChange(q, $event, question)"
-                                   [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue), 'ans-decorated': (q.value && question.showAnswer)}"
-                            >
+                            <input mz-radio-button *ngFor="let q of question.questionSet" [label]="q.text"
+                                [withGap]="true" [disabled]="question.isLocked" id="{{q.id}}" name="{{question.group}}"
+                                type="radio" (change)="onChange(q, $event, question)"
+                                [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue), 'ans-decorated': (q.value && question.showAnswer)}">
                         </mz-radio-button-container>
                         <div *ngIf="question.type === 'radio'">
-                            <button type="button"
-                                    class="btn btn-primary list"
-                                    (click)="onShowAnswerClick(question)">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
+                            <button type="button" class="btn btn-primary list"
+                                (click)="onShowAnswerClick(question)">{{'QUESTION.SHOW_ANSWER' | translate}}</button>
                             <div *ngIf="question.showAnswer">
                                 <ul class="nav nav-stack">
                                     <li class="margin-top-5" *ngFor="let qa of question.questionSet">
@@ -35,25 +25,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col m12 s8 l12 xl12"  *ngIf="question.type === 'image' || question.type === 'write'">
-                        <mz-input-container>
-                            <i mz-icon-mdi mz-input-prefix
-                               [icon]="'email'">
-                            </i>
-                            <input mz-input
-                                   [label]="'QUESTION.TYPE_ANSWER' | translate"
-                                   [validate]="true"
-                                   [disabled]="question.isLocked"
-                                   id="email-input"
-                                   maxlength="150"
-                                   autocomplete="question.questionSet"
-                                   length="150"
-                                   type="text">
-                        </mz-input-container>
-                        <button type="button"
-                                class="btn btn-primary list"
-                                (click)="onShowAnswerClick(question)">
-                                {{ 'QUESTION.SHOW_ANSWER' | translate }}
+                    <div class="col m12 s8 l12 xl12" *ngIf="question.type === 'image'">
+                        <mz-card class="transparent darken-1 white-text" [hoverable]="true">
+                            <mz-card-content>
+                                <img [alt]="question.header" [src]="'assets/images/app/' + question.image" class="questionaire-image"/>
+                            </mz-card-content>
+                        </mz-card>
+                        <mz-radio-button-container>
+                            <input mz-radio-button *ngFor="let q of question.questionSet" [label]="q.text"
+                                [withGap]="true" [disabled]="question.isLocked" id="{{q.id}}" name="{{question.group}}"
+                                type="radio" (change)="onChange(q, $event, question)"
+                                [ngClass]="{'has-error': (!q.value && q.returnValue), 'is-success': (q.value && q.returnValue), 'ans-decorated': (q.value && question.showAnswer)}">
+                        </mz-radio-button-container>
+                        <button type="button" class="btn btn-primary list" (click)="onShowAnswerClick(question)">
+                            {{ 'QUESTION.SHOW_ANSWER' | translate }}
                         </button>
                         <div *ngIf="question.showAnswer">
                             <ul class="nav nav-stack">
