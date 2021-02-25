@@ -215,17 +215,17 @@
       "image": "imagen8.png",
       "questionSet": [
         {
-          "id": "b71f10ea-3531-11e8-b3cf-0242ac120002",
+          "id": "b71f10ea-3531-11e8-b3cf-c3",
           "text": "Fractura incompleta.",
           "value": true
         },
         {
-          "id": "bcef7dd1-3531-11e8-b3cf-0242ac120002",
+          "id": "bcef7dd1-3531-11e8-b3cf-c2",
           "text": "Fractura completa.",
           "value": false
         },
         {
-          "id": "c20359c5-3531-11e8-b3cf-0242ac120002",
+          "id": "c20359c5-3531-11e8-b3cf-c1",
           "text": "Fractura consolidada.",
           "value": false
         }
@@ -240,22 +240,22 @@
       "header": "9. Sobre la Insuficiencia Renal Aguda (IRA) marque la opción correcta:",
       "questionSet": [
         {
-          "id": "b71f10ea-3531-11e8-b3cf-0242ac120002",
+          "id": "b71f10ea-3531-11e8-b3cf-b4",
           "text": "Deterioro lento y progresivo de la función renal.",
           "value": false
         },
         {
-          "id": "bcef7dd1-3531-11e8-b3cf-0242ac120002",
+          "id": "bcef7dd1-3531-11e8-b3cf-b3",
           "text": "La IRA postrenal es solo por obstrucción intrínseca.",
           "value": false
         },
         {
-          "id": "c20359c5-3531-11e8-b3cf-0242ac120002",
+          "id": "c20359c5-3531-11e8-b3cf-b2",
           "text": "El tratamiento se realiza en el área de atención primaria.",
           "value": false
         },
         {
-          "id": "c6e10e9e-3531-11e8-b3cf-0242ac120002",
+          "id": "c6e10e9e-3531-11e8-b3cf-b1",
           "text": "La forma oligúrica es producida casi siempre por nefrotoxinas.",
           "value": true
         }
@@ -271,24 +271,24 @@
       "image": "imagen10.png",
       "questionSet": [
         {
-          "id": "b71f10ea-3531-11e8-b3cf-0242ac120002",
+          "id": "b71f10ea-3531-11e8-b3cf-a4",
           "text": "Neumotórax bilateral.",
           "value": false
         },
         {
-          "id": "bcef7dd1-3531-11e8-b3cf-0242ac120002",
+          "id": "bcef7dd1-3531-11e8-b3cf-a3",
           "text": "Edema agudo del pulmón.",
           "value": true
         },
         {
-          "id": "c20359c5-3531-11e8-b3cf-0242ac120002",
+          "id": "c20359c5-3531-11e8-b3cf-a2",
           "text": "Signo de atrapamiento de aire.",
           "value": false
         },
         {
-          "id": "c6e10e9e-3531-11e8-b3cf-0242ac120002",
+          "id": "c6e10e9e-3531-11e8-b3cf-a1",
           "text": "La forma oligúrica es producida casi siempre por nefrotoxinas.",
-          "value": true
+          "value": false
         }
       ]
     }
